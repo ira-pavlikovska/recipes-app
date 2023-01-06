@@ -1,10 +1,10 @@
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Card from '@mui/material/Card'
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import {useNavigate} from 'react-router-dom';
 import {ChangeEvent, useState} from "react";
 
 
@@ -30,6 +30,7 @@ const StyledPaper = styled(Paper)(({theme}) => ({
 function LoginPage() {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    let navigate = useNavigate();
 
     const usernameHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setUsername(event.target.value)
@@ -40,7 +41,7 @@ function LoginPage() {
     }
 
     const signInHandler = (type:any) => {
-        console.log("hi")
+        navigate('/recipes')
     }
 
 
