@@ -6,6 +6,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import {ChangeEvent, useState} from "react";
+import {login} from "../api"
+import {UserTypeResponce, UserType} from "../models";
 
 
 const InputWrapper = styled('div')({
@@ -30,6 +32,7 @@ const StyledPaper = styled(Paper)(({theme}) => ({
 function LoginPage() {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [userData, setUserData] = useState([]);
     let navigate = useNavigate();
 
     const usernameHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -40,8 +43,16 @@ function LoginPage() {
         setPassword(event.target.value)
     }
 
-    const signInHandler = (type:any) => {
-        navigate('/recipes')
+    const signInHandler = () => {
+
+        login(username, password)
+            .then((data: any)=> {
+            console.log(JSON.stringify(data))
+                navigate('/recipes')
+            })
+            .catch((error: any)=> {
+                console.log("error")
+            })
     }
 
 
