@@ -18,15 +18,30 @@ const users = [
         password: 'asdf',
         token: 'asdfasdfasdfasdfasdf'
     },
+    {
+        id: 2,
+        firstName: 'Serega',
+        username: 'serega',
+        password: 'asdfasdf',
+        token: 'asdf'
+    },
+
 ]
+
 
 
 app.post('/login', function (req, res) {
     const {username, password} = req.body
     const user = users.filter(u => u.username === username && u.password === password)[0]
-
-    //   console.log(`cart ${JSON.stringify(user)}`);
-    res.send(user)
+let result = '';
+    if(users.includes(user)){
+        result = user
+    }else
+    {
+        result = 'username or password not found'
+    }
+      console.log(`cart ${JSON.stringify(user)}`);
+    res.send(result)
 })
 
 console.log(`server is running ...`)

@@ -46,9 +46,14 @@ function LoginPage() {
     const signInHandler = () => {
 
         login(username, password)
-            .then((data: any)=> {
-            console.log(JSON.stringify(data))
-                navigate('/recipes')
+            .then((response: any)=> {
+            console.log(JSON.stringify(response))
+                if(response.data === "username or password not found"){
+                    alert("username or password not found")
+                }else{
+                    navigate('/recipes')
+                }
+
             })
             .catch((error: any)=> {
                 console.log("error")
