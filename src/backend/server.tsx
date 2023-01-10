@@ -27,6 +27,12 @@ const users = [
     },
 
 ]
+const loginError = [
+    {
+        error: true,
+        errorText:'username or password did not found'
+    }
+]
 
 
 
@@ -38,7 +44,7 @@ let result = '';
         result = user
     }else
     {
-        result = 'username or password not found'
+        result = loginError[0]
     }
       console.log(`cart ${JSON.stringify(user)}`);
     res.send(result)

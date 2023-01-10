@@ -32,7 +32,7 @@ const StyledPaper = styled(Paper)(({theme}) => ({
 function LoginPage() {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [userData, setUserData] = useState([]);
+    const [error, setError] = useState<string>('');
     let navigate = useNavigate();
 
     const usernameHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -43,24 +43,27 @@ function LoginPage() {
         setPassword(event.target.value)
     }
 
+    const handleErrors = (data:any) => {
+        console.log(data)
+        if(data.data.error === true){
+            setError(data.data.errorText)
+            return true
+        }
+        return false
+    }
+
     const signInHandler = () => {
 
         login(username, password)
             .then((response: any)=> {
             console.log(JSON.stringify(response))
-                if(response.data === "username or password not found"){
-                    alert("username or password not found")
-                }else{
-                    navigate('/recipes')
-                }
-
+                if(handleErrors(response)) return
+                navigate('/recipes')
             })
             .catch((error: any)=> {
                 console.log("error")
             })
     }
-
-
 
     return (
         <Box sx={{flexGrow: 1}}>
@@ -103,6 +106,11 @@ function LoginPage() {
                                 >
                                     Sign in
                                 </Button>
+                            </InputWrapper>
+                            <InputWrapper>
+                                {error && (
+                                    <div> {error}</div>
+                                )}
                             </InputWrapper>
                         </StyledPaper>
                     </Paper>
