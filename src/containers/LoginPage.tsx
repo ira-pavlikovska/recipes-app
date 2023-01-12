@@ -5,6 +5,9 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {useAppDispatch} from '../hooks/useAppDispatch'
+import { setUser } from "../reducer/userReducer";
 import {ChangeEvent, useState} from "react";
 import {login} from "../api"
 import {UserTypeResponce, UserType} from "../models";
@@ -30,6 +33,7 @@ const StyledPaper = styled(Paper)(({theme}) => ({
 
 
 function LoginPage() {
+    const dispatch = useAppDispatch();
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string>('');
@@ -58,6 +62,9 @@ function LoginPage() {
             .then((response: any)=> {
             console.log(JSON.stringify(response))
                 if(handleErrors(response)) return
+
+                localStorage.setItem('token', response.data.token)
+                dispatch(setUser(response.data))
                 navigate('/recipes')
             })
             .catch((error: any)=> {

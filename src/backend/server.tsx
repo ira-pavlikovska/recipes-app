@@ -46,7 +46,7 @@ let result = '';
     {
         result = loginError[0]
     }
-      console.log(`cart ${JSON.stringify(user)}`);
+      // console.log(`login ${JSON.stringify(user)}`);
     res.send(result)
 })
 

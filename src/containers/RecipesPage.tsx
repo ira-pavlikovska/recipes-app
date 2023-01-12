@@ -4,11 +4,11 @@ import {RootState} from "../store";
 import userReducer from '../reducer/userReducer';
 
 function RecipesPage() {
-    const {test} = useAppSelector((state: RootState) => state.userReducer);
-    console.log(test)
+    const {user} = useAppSelector((state: RootState) => state.userReducer);
+    console.log(`recipes ${JSON.stringify(user)}`)
     return (
         <div>
-            Recipes {test}
+            Recipes{user.firstName}
         </div>
     );
 }

@@ -1,30 +1,34 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {UserType} from "../models";
 
 interface userState {
-    // user: userT[],
-    test: string
+    user: UserType
+    // test: string
 }
 const initialState = {
-    // user:
-        // {
-        //     product: {
-        //         id: 1,
-        //         category: 'shampoo',
-        //         name: 'Aveda',
-        //         price: 5.99,
-        //         description: 'scalp balancing shampoo'
-        //     },
-        //     quantity: 3
-        // }
+    user:
+        {
+            // userId: 76,
+            // username: 'bob',
+            // firstName: 'Bob',
+            // password: 'hhg',
+            // token: 'ggg',
 
-    test: 'hi Mister !!! :)'
+        }
+    // test: 'hi Mister !!! :)'
 } as userState
 
 export const userSlice = createSlice({
     name:'user',
     initialState,
     reducers: {
-        // userLogin:
+        setUser:(state, action) => {
+            const user = action.payload
+            console.log(`reducer ${JSON.stringify(user)}`)
+            return {...state,
+                user: {userId: user.id, username: user.username, firstName: user.firstName, password: user.password, token: user.token}
+            }
+        },
 
     }
 
@@ -32,7 +36,7 @@ export const userSlice = createSlice({
 })
 
 export const {
-    // userLogin,
+    setUser
    } = userSlice.actions;
 
 export default userSlice.reducer;
