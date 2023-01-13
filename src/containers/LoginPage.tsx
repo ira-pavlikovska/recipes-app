@@ -10,7 +10,6 @@ import {useAppDispatch} from '../hooks/useAppDispatch'
 import { setUser } from "../reducer/userReducer";
 import {ChangeEvent, useState} from "react";
 import {login} from "../api"
-import {UserTypeResponce, UserType} from "../models";
 
 
 const InputWrapper = styled('div')({

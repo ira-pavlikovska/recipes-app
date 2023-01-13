@@ -3,15 +3,29 @@ import {styled} from '@mui/material/styles';
 import {useAppSelector} from '../hooks/useAppSelector';
 import {RootState} from "../store";
 import userReducer from '../reducer/userReducer';
+import {useEffect, useState} from "react";
+import {getRecipes} from "../api";
+import {RecipeType} from "../models";
 import Header from "../components/Header";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
 function RecipesPage() {
+    const [recipes, setRecipes] = useState <RecipeType[]>([])
     const {user} = useAppSelector((state: RootState) => state.userReducer);
-    console.log(`recipes ${JSON.stringify(user)}`)
 
+    const userId = user.userId
+
+    useEffect(() => {
+        getRecipes(userId)
+            .then((response: any) =>
+                setRecipes(response.data)
+            )
+            .catch((error: any) => console.log(JSON.stringify(error)));
+    }, []);
+
+    // console.log(`recipes ${JSON.stringify(recipes)}`)
 
     const StyledPaper = styled(Paper)(({theme}) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -20,6 +34,7 @@ function RecipesPage() {
         textAlign: 'center',
         color: theme.palette.text.secondary,
     }));
+    const haveRecipes = recipes.length > 0;
 
     return (
         <Box sx={{flexGrow: 1}}>
@@ -33,12 +48,11 @@ function RecipesPage() {
                     <StyledPaper elevation={3}>
                         <h4>My Recipes</h4>
 <div>
-{/*    {*/}
-{/*    recipes.map(recipe => (*/}
-{/*        <RecipeComponent key={recipe.id} recipe={recipe}*/}
-{/*                    />*/}
-{/*    ))*/}
-{/*}*/}
+    {
+        haveRecipes? recipes.map(recipe => (
+        <div>{recipe.recipeName}</div>
+        )): ''
+}
 </div>
                     </StyledPaper>
                 </Grid>

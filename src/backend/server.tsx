@@ -30,9 +30,10 @@ const users = [
 
 const recipes = [
     {
-        id: 76,
+        recipeId: 76,
         userId: 1,
-        name: 'Creamy Tuscan Shrimp with Bacon, Tomatoes, Spinach & Zucchini Noodles',
+        recipeName: 'Creamy Tuscan Shrimp with Bacon, Tomatoes, Spinach & Zucchini Noodles',
+        imageUrl: 'https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/1768/presentation_2012744c-2133-48f8-9e8c-2a32334adfb6.jpeg',
         ingredients: [
             {
                name: 'baby spinach',
@@ -121,9 +122,10 @@ const recipes = [
         ]
     },
     {
-        id: 34,
+        recipeId: 34,
         userId: 1,
-        name: 'Spinach & Artichoke Dip" Gnocchi Bake with Cauliflower',
+        recipeName: 'Spinach & Artichoke Dip" Gnocchi Bake with Cauliflower',
+        imageUrl: 'https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/2484/presentation_64fd0ac2-bb52-4bf0-9b2a-62cd23791238.jpeg',
         ingredients: [
             {
                 name: 'Alfredo sauce',
@@ -181,9 +183,10 @@ const recipes = [
         ]
     },
     {
-        id: 34,
+        recipeId: 34,
         userId: 2,
-        name: 'Caprese Salad with Fresh Mozzarella, Tomatoes, Basil & Balsamic',
+        recipeName: 'Caprese Salad with Fresh Mozzarella, Tomatoes, Basil & Balsamic',
+        imageUrl: 'https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/2552/presentation_9affd8df-a087-498d-932b-1d054bfdaa24.jpeg',
         ingredients: [
             {
                 name: 'fresh basil',
