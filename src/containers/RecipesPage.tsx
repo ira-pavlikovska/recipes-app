@@ -25,7 +25,7 @@ function RecipesPage() {
             .catch((error: any) => console.log(JSON.stringify(error)));
     }, []);
 
-    // console.log(`recipes ${JSON.stringify(recipes)}`)
+    console.log(`recipes ${JSON.stringify(recipes)}`)
 
     const StyledPaper = styled(Paper)(({theme}) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -49,8 +49,8 @@ function RecipesPage() {
                         <h4>My Recipes</h4>
 <div>
     {
-        haveRecipes? recipes.map(recipe => (
-        <div>{recipe.recipeName}</div>
+        haveRecipes? recipes.map((recipe,index) => (
+        <div key ={index}>{recipe.recipeName}</div>
         )): ''
 }
 </div>

@@ -256,8 +256,10 @@ app.post('/login', function (req, res) {
 
 app.get('/recipes', function (req, res) {
     // TODO: use userId to load recipes
-    const userId = 1
-    res.send(recipes.filter(r => r.userId === userId))
+    const {userId} = req.query
+    console.log(`userId = ${userId}`)
+    // const userId = 1
+    res.send(recipes.filter(r => r.userId === parseInt(userId, 10)))
 })
 
 
