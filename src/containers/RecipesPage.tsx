@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import {getRecipes} from "../api";
 import {RecipeType} from "../models";
 import Header from "../components/Header";
+import RecipeComponent from "../components/RecipeComponent";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -46,11 +47,11 @@ function RecipesPage() {
                 </Grid>
                 <Grid item xs={12}>
                     <StyledPaper elevation={3}>
-                        <h4>My Recipes</h4>
+                        <h2 style={{paddingBottom: 30}}>My Recipes</h2>
 <div>
     {
         haveRecipes? recipes.map((recipe,index) => (
-        <div key ={index}>{recipe.recipeName}</div>
+        <div key ={index}> <RecipeComponent  recipe={recipe}/> </div>
         )): ''
 }
 </div>

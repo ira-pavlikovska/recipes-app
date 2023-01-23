@@ -7,10 +7,10 @@ function Header() {
     const {user} = useAppSelector((state: RootState) => state.userReducer);
     return (
         <div>
-            <h3>
+            <h2>
                 {user.firstName + "'" +
                 's'} Recipes book
-            </h3>
+            </h2>
         </div>
     );
 }
