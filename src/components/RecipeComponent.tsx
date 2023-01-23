@@ -21,15 +21,15 @@ const RecipeComponent = ({recipe}: Props) => {
                     </div>
                 </Grid>
                 <Grid item xs={8}>
-                    <div style={{marginTop: 30}}>
+                    <div style={{marginTop: 30, }}>
                         <h3>{recipe.recipeName}</h3>
                     </div>
                     <div>
-                        Ingredients:{recipe.ingredients.map(ingredient => (
+                       <span style={{fontWeight: 'bold'}}> Ingredients:</span>{recipe.ingredients.map(ingredient => (
                         <div>{ingredient.name} - {ingredient.quantity}</div>
                     ))}
                     </div>
-                    <div style={{margin: 20}}>Instructions:{recipe.instructions.map(instruction => (
+                    <div style={{margin: 20,}}><span style={{fontWeight: 'bold'}}>Instructions:</span>{recipe.instructions.map(instruction => (
                         <div>{instruction}</div>
                     ))}</div>
                 </Grid>
