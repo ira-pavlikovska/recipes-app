@@ -6,7 +6,7 @@ import {RootState} from "../store";
 function Header() {
     const {user} = useAppSelector((state: RootState) => state.userReducer);
     return (
-        <div >
+        <div  style={{color: 'rgba(0, 0, 0, 0.6)'}}>
             <h2>
                 {user.firstName + "'" +
                 's'} Recipes book
