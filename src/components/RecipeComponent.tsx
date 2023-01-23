@@ -24,12 +24,12 @@ const RecipeComponent = ({recipe}: Props) => {
                     <div style={{marginTop: 30, color: '#1976d2'}}>
                         <h3>{recipe.recipeName}</h3>
                     </div>
-                    <div>
+                    <div style={{marginTop: 30, textAlign: 'left'}}>
                        <span style={{fontWeight: 'bold'}}> Ingredients:</span>{recipe.ingredients.map(ingredient => (
                         <div>{ingredient.name} - {ingredient.quantity}</div>
                     ))}
                     </div>
-                    <div style={{margin: 20,}}><span style={{fontWeight: 'bold'}}>Instructions:</span>{recipe.instructions.map(instruction => (
+                    <div style={{marginTop: 30, textAlign: 'left'}}><span style={{fontWeight: 'bold'}}>Instructions:</span>{recipe.instructions.map(instruction => (
                         <div>{instruction}</div>
                     ))}</div>
                 </Grid>
