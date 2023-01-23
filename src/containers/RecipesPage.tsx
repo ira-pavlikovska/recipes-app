@@ -13,12 +13,16 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
+import {useNavigate} from "react-router-dom";
 
 function RecipesPage() {
     const [recipes, setRecipes] = useState<RecipeType[]>([])
+    let navigate = useNavigate();
     const {user} = useAppSelector((state: RootState) => state.userReducer);
-
     const userId = user.userId
+    if(!userId){
+        navigate('/')
+    }
 
     useEffect(() => {
         getRecipes(userId)
@@ -43,7 +47,7 @@ function RecipesPage() {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <div style={{textAlign: 'center'}}><Header/></div>
+                    <div style={{alignItems: 'center' }} ><Header/></div>
                 </Grid>
                 <Grid item xs={12}>
                     <StyledPaper elevation={3}>
