@@ -11,9 +11,11 @@ import RecipeComponent from "../components/RecipeComponent";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
 
 function RecipesPage() {
-    const [recipes, setRecipes] = useState <RecipeType[]>([])
+    const [recipes, setRecipes] = useState<RecipeType[]>([])
     const {user} = useAppSelector((state: RootState) => state.userReducer);
 
     const userId = user.userId
@@ -41,26 +43,36 @@ function RecipesPage() {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <StyledPaper elevation={3} style={{paddingTop: 30}}>
-                        <Header />
-                    </StyledPaper>
+                    <div style={{textAlign: 'center'}}><Header/></div>
                 </Grid>
                 <Grid item xs={12}>
                     <StyledPaper elevation={3}>
-                        <h2 style={{paddingBottom: 30}}>My Recipes</h2>
-<div>
-    {
-        haveRecipes? recipes.map((recipe,index) => (
-        <div key ={index}> <RecipeComponent  recipe={recipe}/> </div>
-        )): ''
-}
-</div>
+                        <Grid item xs={12} style={{marginTop: 30}}>
+                            <span style={{fontSize: 22, fontWeight: 'bold', float: 'left', marginLeft: 30}}>My Recipes</span>
+                            <span><Button
+                                variant="outlined"
+                                style={{float: 'right'}}
+                            >
+                                Add new Recipe
+                            </Button>
+                            </span>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <div>
+                                {
+                                    haveRecipes ? recipes.map((recipe, index) => (
+                                        <div key={index}><RecipeComponent recipe={recipe}/></div>
+                                    )) : ''
+                                }
+                            </div>
+
+                        </Grid>
                     </StyledPaper>
                 </Grid>
-                <Grid item xs={12}>
-                    <StyledPaper elevation={3}>
-                    </StyledPaper>
-                </Grid>
+                {/*<Grid item xs={12}>*/}
+                {/*    <StyledPaper elevation={3}>*/}
+                {/*    </StyledPaper>*/}
+                {/*</Grid>*/}
             </Grid>
         </Box>
     );

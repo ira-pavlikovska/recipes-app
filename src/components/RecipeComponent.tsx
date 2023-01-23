@@ -15,13 +15,13 @@ const RecipeComponent = ({recipe}: Props) => {
 
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={4}>
                     <div style={{marginTop: 30}}>
-                        <img style={{width: 400, height: 400}} src={recipe.imageUrl}/>
+                        <img style={{width: 350, height: 350}} src={recipe.imageUrl}/>
                     </div>
                 </Grid>
-                <Grid item xs={8}>
-                    <div style={{marginTop: 30, }}>
+                <Grid item xs={12} md={8}>
+                    <div style={{marginTop: 30, color: '#1976d2'}}>
                         <h3>{recipe.recipeName}</h3>
                     </div>
                     <div>
