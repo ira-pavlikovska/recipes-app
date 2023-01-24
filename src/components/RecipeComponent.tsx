@@ -22,7 +22,7 @@ const RecipeComponent = ({recipe}: Props) => {
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <div style={{marginTop: 30, color: '#1976d2'}}>
-                        <h3>{recipe.recipeName}</h3>
+                        <div>{recipe.recipeName}</div>
                     </div>
                     <div style={{marginTop: 30, textAlign: 'left'}}>
                        <span style={{fontWeight: 'bold'}}> Ingredients:</span>{recipe.ingredients.map(ingredient => (

@@ -2,8 +2,7 @@ import React from 'react';
 import {styled} from '@mui/material/styles';
 import {useAppSelector} from '../hooks/useAppSelector';
 import {RootState} from "../store";
-import userReducer from '../reducer/userReducer';
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {getRecipes} from "../api";
 import {RecipeType} from "../models";
 import Header from "../components/Header";
@@ -11,14 +10,15 @@ import RecipeComponent from "../components/RecipeComponent";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
-
+import { setRecipes } from "../reducer/recipesReducer";
+import {useAppDispatch} from "../hooks/useAppDispatch";
 function RecipesPage() {
-    const [recipes, setRecipes] = useState<RecipeType[]>([])
     let navigate = useNavigate();
+    const dispatch = useAppDispatch();
     const {user} = useAppSelector((state: RootState) => state.userReducer);
+    const {recipes} = useAppSelector((state: RootState) => state.recipesReducer);
     const userId = user.userId
     if(!userId){
         navigate('/')
@@ -26,9 +26,7 @@ function RecipesPage() {
 
     useEffect(() => {
         getRecipes(userId)
-            .then((response: any) =>
-                setRecipes(response.data)
-            )
+            .then((response: any) => dispatch(setRecipes(response.data)))
             .catch((error: any) => console.log(JSON.stringify(error)));
     }, []);
 
@@ -62,21 +60,17 @@ function RecipesPage() {
                             </span>
                         </Grid>
                         <Grid item xs={12}>
-                            <div>
                                 {
-                                    haveRecipes ? recipes.map((recipe, index) => (
-                                        <div key={index}><RecipeComponent recipe={recipe}/></div>
-                                    )) : ''
+                                    haveRecipes && (
+                                        recipes.map((recipe:RecipeType) => (
+                                            <div><RecipeComponent recipe={recipe}/></div>
+                                        ))
+                                    )
                                 }
-                            </div>
 
                         </Grid>
                     </StyledPaper>
                 </Grid>
-                {/*<Grid item xs={12}>*/}
-                {/*    <StyledPaper elevation={3}>*/}
-                {/*    </StyledPaper>*/}
-                {/*</Grid>*/}
             </Grid>
         </Box>
     );
