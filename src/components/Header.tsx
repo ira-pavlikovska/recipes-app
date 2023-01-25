@@ -26,25 +26,28 @@ export default function Header() {
 
     return (
         <React.Fragment>
-            <Box sx={{display: 'flex', justifyContent: 'right', alignItems: 'center'}}>
-                <Typography sx={{minWidth: 600}}>
-                    <div style={{color: 'rgba(0, 0, 0, 0.6)'}}>
+            <div style={{display:'flex'}}>
+                  <span style={{color: 'rgba(0, 0, 0, 0.6)',display:'flex', alignItems: 'center', justifyContent:'center', flex: 11}}>
                         <h2>
                             {user.firstName + "'" +
                             's'} Recipes book
                         </h2>
-                    </div>
-                </Typography>
-                <Tooltip title="Account settings">
-                    <IconButton
-                        onClick={handleClick}
-                        size='small'
-                        sx={{ml: 2}}
-                    >
-                       <AccountCircleIcon fontSize="large"/>
-                    </IconButton>
-                </Tooltip>
-            </Box>
+                    </span>
+                <span style={{ flex: 1, display:'flex', justifyContent:'center'}}>
+    <Tooltip title="Account settings">
+        <IconButton
+            onClick={handleClick}
+            size='small'
+            sx={{ml: 2}}
+        >
+            <AccountCircleIcon fontSize="large"/>
+        </IconButton>
+    </Tooltip>
+
+</span>
+
+            </div>
+
             <Menu
                 anchorEl={anchorEl}
                 id="account-menu"
