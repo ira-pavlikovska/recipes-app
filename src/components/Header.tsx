@@ -10,9 +10,11 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Logout from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import {useNavigate} from "react-router-dom";
 
 
 export default function Header() {
+    let navigate = useNavigate();
     const {user} = useAppSelector((state: RootState) => state.userReducer);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -23,6 +25,9 @@ export default function Header() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const handleLogout = () => {
+        navigate('/')
+    }
 
     return (
         <React.Fragment>
@@ -84,8 +89,11 @@ export default function Header() {
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
                 <MenuItem>
-                    <ListItemIcon>
-                        <Logout fontSize="small"/>
+                    <ListItemIcon >
+                        <Logout
+                            fontSize="small"
+                            onClick={handleLogout}
+                            />
                     </ListItemIcon>
                     Logout
                 </MenuItem>
