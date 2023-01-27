@@ -10,6 +10,7 @@ import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import {ListItem} from "@mui/material";
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
 type Props = {
     handleCloseModal: () => void
@@ -17,7 +18,7 @@ type Props = {
 }
 
 export default function ModalComponent({handleCloseModal, open}: Props) {
-const [recipeName, setRecipeName] = useState('');
+    const [recipeName, setRecipeName] = useState('');
     const style = {
         position: 'absolute' as 'absolute',
         top: '50%',
@@ -47,54 +48,73 @@ const [recipeName, setRecipeName] = useState('');
                     <List sx={styleDivider}>
                         <Grid item xs={12}>
                             <ListItem>
+                                <Typography>Recipe name</Typography>
                                 <TextField
-                                    placeholder="Recipe name"
-                                    style={{ width: 300 }}
+                                    placeholder="add recipe name here"
+                                    style={{width: 300, marginLeft: 16}}
                                     minRows={1}
                                     value={recipeName}
-                                    onChange={(e)=> setRecipeName(e.target.value)}
+                                    onChange={(e) => setRecipeName(e.target.value)}
                                 />
 
                             </ListItem>
-                            <Divider />
+                            <Divider/>
                         </Grid>
 
                         <Grid item xs={12}>
                             <ListItem>
-                            <Typography>Ingredients</Typography>
-                            <TextField
-                                variant="outlined"
-                                placeholder="name"
-                                value={recipeName}
-                                onChange={(e)=> setRecipeName(e.target.value)}
-                            />
-                            <TextField
-                                variant="outlined"
-                                placeholder="quantity"
-                                value={recipeName}
-                                onChange={(e)=> setRecipeName(e.target.value)}
-                            />
-                            <Button>Add</Button>
+                                <Typography>Ingredients</Typography>
+                                <TextField
+                                    variant="outlined"
+                                    placeholder="name"
+                                    style={{marginLeft: 30}}
+                                    value={recipeName}
+                                    onChange={(e) => setRecipeName(e.target.value)}
+                                />
+                                <TextField
+                                    variant="outlined"
+                                    placeholder="quantity"
+                                    value={recipeName}
+                                    style={{marginLeft: 30}}
+                                    onChange={(e) => setRecipeName(e.target.value)}
+                                />
+                                <Button
+                                    variant="outlined"
+                                    style={{marginLeft: 30}}
+                                >Add</Button>
                             </ListItem>
-                            <Divider />
+                            <Divider/>
                         </Grid>
 
                         <Grid item xs={12}>
-                        <ListItem>
-                            <Typography>Instructions</Typography>
-                            <TextField
-                                variant="outlined"
-                                fullWidth
-                                placeholder="step"
-                                value={recipeName}
-                                onChange={(e)=> setRecipeName(e.target.value)}
-                            />
-                            <Button>Add</Button>
-                        </ListItem>
+                            <ListItem>
+                                <Typography>Instructions</Typography>
+                                <TextField
+                                    variant="outlined"
+                                    fullWidth
+                                    placeholder="step"
+                                    value={recipeName}
+                                    style={{marginLeft: 27}}
+                                    onChange={(e) => setRecipeName(e.target.value)}
+                                />
+                                <Button
+                                    variant="outlined"
+                                    style={{marginLeft: 30}}
+                                >Add</Button>
+                            </ListItem>
+                            <Divider/>
                         </Grid>
 
+                        <Grid item xs={12}>
+                            <ListItem style={{justifyContent: 'right'}}>
+                                <Stack direction="row" spacing={2}>
+                                    <Button variant="contained">Cancel</Button>
+                                    <Button variant="contained">Save</Button>
+                                </Stack>
+                            </ListItem>
+                        </Grid>
                     </List>
-                                   </Grid>
+                </Grid>
             </Box>
         </Modal>
 
