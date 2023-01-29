@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import React from 'react';
 import {useState} from "react";
 import Box from "@mui/material/Box";
@@ -21,11 +21,11 @@ type Props = {
 }
 
 export default function ModalComponent({handleCloseModal, open}: Props) {
-    const [recipeName, setRecipeName] = useState('');
-    const [ingredientName, setIngredientName] = useState('');
-    const [ingredientQuantity, setIngredientQuantity] = useState('');
-    const [instructionStep, setInstructionStep] = useState('');
-    const [ingredientObj, setIngredientObj] = useState([]);
+    const [recipeName, setRecipeName] = useState<string>('');
+    const [ingredientName, setIngredientName] = useState<string>('');
+    const [ingredientQuantity, setIngredientQuantity] = useState<string>('');
+    const [instructionStep, setInstructionStep] = useState<string>('');
+    const [ingredientObj, setIngredientObj] = useState<Ingredient[]>([]);
     const style = {
         position: 'absolute' as 'absolute',
         top: '50%',
@@ -43,7 +43,7 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
         bgcolor: 'background.paper',
     };
 
-const handleAddNewIngredient = (name:string, quantity:number) => {
+const handleAddNewIngredient = (name:string, quantity:string) => {
     setIngredientObj([
         ...ingredientObj,
         {

@@ -6,7 +6,7 @@ export type UserType = {
     token: string
 };
 
-interface Ingredient {
+export type Ingredient = {
    name: string;
    quantity:string;
 }
