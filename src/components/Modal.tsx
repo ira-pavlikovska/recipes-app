@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import {useState} from "react";
 import Box from "@mui/material/Box";
@@ -11,6 +12,8 @@ import List from '@mui/material/List';
 import {ListItem} from "@mui/material";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import {RecipeType, Ingredient} from "../models";
+import RecipeComponent from "./RecipeComponent";
 
 type Props = {
     handleCloseModal: () => void
@@ -19,6 +22,10 @@ type Props = {
 
 export default function ModalComponent({handleCloseModal, open}: Props) {
     const [recipeName, setRecipeName] = useState('');
+    const [ingredientName, setIngredientName] = useState('');
+    const [ingredientQuantity, setIngredientQuantity] = useState('');
+    const [instructionStep, setInstructionStep] = useState('');
+    const [ingredientObj, setIngredientObj] = useState([]);
     const style = {
         position: 'absolute' as 'absolute',
         top: '50%',
@@ -36,7 +43,18 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
         bgcolor: 'background.paper',
     };
 
-
+const handleAddNewIngredient = (name:string, quantity:number) => {
+    setIngredientObj([
+        ...ingredientObj,
+        {
+            name,
+            quantity
+        }
+    ])
+    setIngredientName('');
+    setIngredientQuantity('');
+}
+    const haveIngredients = ingredientObj.length > 0;
     return (
         <Modal
             open={open}
@@ -68,21 +86,32 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
                                     variant="outlined"
                                     placeholder="name"
                                     style={{marginLeft: 30}}
-                                    value={recipeName}
-                                    onChange={(e) => setRecipeName(e.target.value)}
+                                    value={ingredientName}
+                                    onChange={(e) => setIngredientName(e.target.value)}
                                 />
                                 <TextField
                                     variant="outlined"
                                     placeholder="quantity"
-                                    value={recipeName}
+                                    value={ingredientQuantity}
                                     style={{marginLeft: 30}}
-                                    onChange={(e) => setRecipeName(e.target.value)}
+                                    onChange={(e) => setIngredientQuantity(e.target.value)}
                                 />
                                 <Button
                                     variant="outlined"
                                     style={{marginLeft: 30}}
+                                    onClick={()=> handleAddNewIngredient(ingredientName,ingredientQuantity)}
                                 >Add</Button>
+
                             </ListItem>
+
+                            {
+                                haveIngredients && (
+                                    ingredientObj.map((ingredient: Ingredient) => (
+                                        <div>{ingredient.name} - {ingredient.quantity} </div>
+                                    ))
+                                )
+                            }
+
                             <Divider/>
                         </Grid>
 
@@ -93,9 +122,9 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
                                     variant="outlined"
                                     fullWidth
                                     placeholder="step"
-                                    value={recipeName}
+                                    value={instructionStep}
                                     style={{marginLeft: 27}}
-                                    onChange={(e) => setRecipeName(e.target.value)}
+                                    onChange={(e) => setInstructionStep(e.target.value)}
                                 />
                                 <Button
                                     variant="outlined"
