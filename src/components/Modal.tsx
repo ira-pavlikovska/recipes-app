@@ -25,7 +25,7 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
     const [ingredientName, setIngredientName] = useState<string>('');
     const [ingredientQuantity, setIngredientQuantity] = useState<string>('');
     const [instructionStep, setInstructionStep] = useState<string>('');
-    const [ingredientObj, setIngredientObj] = useState<Ingredient[]>([]);
+    const [ingredientObjArr, setIngredientObjArr] = useState<Ingredient[]>([]);
     const style = {
         position: 'absolute' as 'absolute',
         top: '50%',
@@ -44,8 +44,8 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
     };
 
 const handleAddNewIngredient = (name:string, quantity:string) => {
-    setIngredientObj([
-        ...ingredientObj,
+    setIngredientObjArr([
+        ...ingredientObjArr,
         {
             name,
             quantity
@@ -54,7 +54,7 @@ const handleAddNewIngredient = (name:string, quantity:string) => {
     setIngredientName('');
     setIngredientQuantity('');
 }
-    const haveIngredients = ingredientObj.length > 0;
+    const haveIngredients = ingredientObjArr.length > 0;
     return (
         <Modal
             open={open}
@@ -103,14 +103,18 @@ const handleAddNewIngredient = (name:string, quantity:string) => {
                                 >Add</Button>
 
                             </ListItem>
-
-                            {
-                                haveIngredients && (
-                                    ingredientObj.map((ingredient: Ingredient) => (
-                                        <div>{ingredient.name} - {ingredient.quantity} </div>
-                                    ))
-                                )
-                            }
+<ListItem style={{justifyContent:'center'}}>
+    {
+        haveIngredients && (
+            ingredientObjArr.map((ingredient: Ingredient) => (
+                <div style={{marginLeft: 30}}>
+                    <span>{ingredient.name}</span>   -   <span>{ingredient.quantity}</span>
+                    <Button variant="outlined">x</Button>
+                </div>
+            ))
+        )
+    }{}
+</ListItem>
 
                             <Divider/>
                         </Grid>
