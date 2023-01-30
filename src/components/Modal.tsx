@@ -1,19 +1,19 @@
-
 import React from 'react';
 import {useState} from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from '@mui/material/Modal';
 import Grid from "@mui/material/Grid";
-import TextareaAutosize from "@mui/material/TextareaAutosize"
 import TextField from "@mui/material/TextField"
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import {ListItem} from "@mui/material";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import {RecipeType, Ingredient} from "../models";
+import {Ingredient} from "../models";
 import RecipeComponent from "./RecipeComponent";
+import IngredientComponent from "./IngredientComponent";
+
 
 type Props = {
     handleCloseModal: () => void
@@ -26,6 +26,7 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
     const [ingredientQuantity, setIngredientQuantity] = useState<string>('');
     const [instructionStep, setInstructionStep] = useState<string>('');
     const [ingredientObjArr, setIngredientObjArr] = useState<Ingredient[]>([]);
+
     const style = {
         position: 'absolute' as 'absolute',
         top: '50%',
@@ -43,17 +44,17 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
         bgcolor: 'background.paper',
     };
 
-const handleAddNewIngredient = (name:string, quantity:string) => {
-    setIngredientObjArr([
-        ...ingredientObjArr,
-        {
-            name,
-            quantity
-        }
-    ])
-    setIngredientName('');
-    setIngredientQuantity('');
-}
+    const handleAddNewIngredient = (name: string, quantity: string) => {
+        setIngredientObjArr([
+            ...ingredientObjArr,
+            {
+                name,
+                quantity
+            }
+        ])
+        setIngredientName('');
+        setIngredientQuantity('');
+    }
     const haveIngredients = ingredientObjArr.length > 0;
     return (
         <Modal
@@ -99,23 +100,21 @@ const handleAddNewIngredient = (name:string, quantity:string) => {
                                 <Button
                                     variant="outlined"
                                     style={{marginLeft: 30}}
-                                    onClick={()=> handleAddNewIngredient(ingredientName,ingredientQuantity)}
+                                    onClick={() => handleAddNewIngredient(ingredientName, ingredientQuantity)}
                                 >Add</Button>
 
                             </ListItem>
-<ListItem style={{justifyContent:'center'}}>
-    {
-        haveIngredients && (
-            ingredientObjArr.map((ingredient: Ingredient) => (
-                <div style={{marginLeft: 30}}>
-                    <span>{ingredient.name}</span>   -   <span>{ingredient.quantity}</span>
-                    <Button variant="outlined">x</Button>
-                </div>
-            ))
-        )
-    }{}
-</ListItem>
-
+                            <ListItem style={{justifyContent: 'center'}}>
+                                {
+                                    haveIngredients && (
+                                        ingredientObjArr.map((ingredient: Ingredient) => (
+                                            <div>
+                                                <IngredientComponent ingredient={ingredient} />
+                                            </div>
+                                        ))
+                                    )
+                                }
+                            </ListItem>
                             <Divider/>
                         </Grid>
 
