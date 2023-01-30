@@ -11,7 +11,6 @@ import {ListItem} from "@mui/material";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import {Ingredient} from "../models";
-import RecipeComponent from "./RecipeComponent";
 import IngredientComponent from "./IngredientComponent";
 
 
@@ -20,7 +19,7 @@ type Props = {
     open: boolean
 }
 
-export default function ModalComponent({handleCloseModal, open}: Props) {
+export default function AddRecipeModal({handleCloseModal, open}: Props) {
     const [recipeName, setRecipeName] = useState<string>('');
     const [ingredientName, setIngredientName] = useState<string>('');
     const [ingredientQuantity, setIngredientQuantity] = useState<string>('');
@@ -104,16 +103,18 @@ export default function ModalComponent({handleCloseModal, open}: Props) {
                                 >Add</Button>
 
                             </ListItem>
-                            <ListItem style={{justifyContent: 'center'}}>
-                                {
-                                    haveIngredients && (
-                                        ingredientObjArr.map((ingredient: Ingredient) => (
-                                            <div>
-                                                <IngredientComponent ingredient={ingredient} />
-                                            </div>
-                                        ))
-                                    )
-                                }
+                            <ListItem>
+                                <div style={{justifyContent: 'center', width: '100%'}}>
+                                    {
+                                        haveIngredients && (
+                                            ingredientObjArr.map((ingredient: Ingredient) => (
+                                                <div style={{display: "flex", flexDirection: "column"}}>
+                                                    <IngredientComponent ingredient={ingredient}/>
+                                                </div>
+                                            ))
+                                        )
+                                    }
+                                </div>
                             </ListItem>
                             <Divider/>
                         </Grid>

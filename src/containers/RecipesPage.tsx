@@ -14,8 +14,7 @@ import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
 import {setRecipes} from "../reducer/recipesReducer";
 import {useAppDispatch} from "../hooks/useAppDispatch";
-import ModalComponent from '../components/Modal';
-import Typography from '@mui/material/Typography';
+import AddRecipeModal from '../components/AddRecipeModal';
 
 function RecipesPage() {
 
@@ -87,7 +86,7 @@ function RecipesPage() {
                                     ))
                                 )
                             }
-                            <ModalComponent handleCloseModal={handleCloseModal} open={openModal}/>
+                            <AddRecipeModal handleCloseModal={handleCloseModal} open={openModal}/>
                         </Grid>
                     </StyledPaper>
                 </Grid>
