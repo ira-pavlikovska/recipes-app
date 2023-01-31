@@ -183,7 +183,10 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
                         <Grid item xs={12}>
                             <ListItem style={{justifyContent: 'right'}}>
                                 <Stack direction="row" spacing={2}>
-                                    <Button variant="contained">Cancel</Button>
+                                    <Button
+                                        variant="contained"
+                                        onClick={handleCloseModal}
+                                    >Cancel</Button>
                                     <Button variant="contained">Save</Button>
                                 </Stack>
                             </ListItem>
