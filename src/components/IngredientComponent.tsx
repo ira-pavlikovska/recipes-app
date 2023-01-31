@@ -15,7 +15,7 @@ const IngredientComponent = ({ingredient}: Props) => {
             <Grid item xs={5} ><div>{ingredient.name}</div></Grid>
             <Grid item xs={5} ><div>{ingredient.quantity}</div></Grid>
             <Grid item xs={2} >
-                <div><Button>x</Button></div>
+                <div><Button style={{marginLeft: 17}}>x</Button></div>
             </Grid>
         </Grid>
     );

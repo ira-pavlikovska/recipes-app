@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import {Ingredient} from "../models";
 import IngredientComponent from "./IngredientComponent";
-
+import InstructionStepComponent from "./InstructionStepComponent";
 
 type Props = {
     handleCloseModal: () => void
@@ -25,6 +25,7 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
     const [ingredientQuantity, setIngredientQuantity] = useState<string>('');
     const [instructionStep, setInstructionStep] = useState<string>('');
     const [ingredientObjArr, setIngredientObjArr] = useState<Ingredient[]>([]);
+    const [instructionsArr, setInstructionsArr] = useState<string[]>([]);
 
     const style = {
         position: 'absolute' as 'absolute',
@@ -54,7 +55,16 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
         setIngredientName('');
         setIngredientQuantity('');
     }
+    const handleAddNewInstruction = (step: string) => {
+        setInstructionsArr([
+            ...instructionsArr,
+            step
+        ])
+        setInstructionStep('');
+    }
+
     const haveIngredients = ingredientObjArr.length > 0;
+    const haveInstructions = instructionsArr.length > 0;
     return (
         <Modal
             open={open}
@@ -98,7 +108,7 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
                                 />
                                 <Button
                                     variant="outlined"
-                                    style={{marginLeft: 30}}
+                                    style={{marginLeft: 90}}
                                     onClick={() => handleAddNewIngredient(ingredientName, ingredientQuantity)}
                                 >Add</Button>
 
@@ -133,8 +143,23 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
                                 <Button
                                     variant="outlined"
                                     style={{marginLeft: 30}}
+                                    onClick={() => handleAddNewInstruction(instructionStep)}
                                 >Add</Button>
                             </ListItem>
+                            <ListItem>
+                                <div style={{justifyContent: 'center', width: '100%'}}>
+                                    {
+                                        haveInstructions && (
+                                            instructionsArr.map((step: string) => (
+                                                <div style={{display: "flex", flexDirection: "column"}}>
+                                                    <InstructionStepComponent step={step}/>
+                                                </div>
+                                            ))
+                                        )
+                                    }
+                                </div>
+                            </ListItem>
+
                             <Divider/>
                         </Grid>
 
