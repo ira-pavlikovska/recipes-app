@@ -45,22 +45,26 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
     };
 
     const handleAddNewIngredient = (name: string, quantity: string) => {
-        setIngredientObjArr([
-            ...ingredientObjArr,
-            {
-                name,
-                quantity
-            }
-        ])
-        setIngredientName('');
-        setIngredientQuantity('');
+        if (name) {
+            setIngredientObjArr([
+                ...ingredientObjArr,
+                {
+                    name,
+                    quantity
+                }
+            ])
+            setIngredientName('');
+            setIngredientQuantity('');
+        }
     }
     const handleAddNewInstruction = (step: string) => {
-        setInstructionsArr([
-            ...instructionsArr,
-            step
-        ])
-        setInstructionStep('');
+        if (step) {
+            setInstructionsArr([
+                ...instructionsArr,
+                step
+            ])
+            setInstructionStep('');
+        }
     }
 
     const haveIngredients = ingredientObjArr.length > 0;
