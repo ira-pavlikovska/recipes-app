@@ -20,6 +20,7 @@ type Props = {
 }
 
 export default function AddRecipeModal({handleCloseModal, open}: Props) {
+
     const [recipeName, setRecipeName] = useState<string>('');
     const [ingredientName, setIngredientName] = useState<string>('');
     const [ingredientQuantity, setIngredientQuantity] = useState<string>('');
@@ -57,6 +58,12 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
             setIngredientQuantity('');
         }
     }
+
+    const handleDeleteIngredient = (ingredient: Ingredient) => {
+        setIngredientObjArr(ingredientObjArr.filter((item:Ingredient)=> item.name !== ingredient.name ))
+    }
+
+
     const handleAddNewInstruction = (step: string) => {
         if (step) {
             setInstructionsArr([
@@ -123,7 +130,7 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
                                         haveIngredients && (
                                             ingredientObjArr.map((ingredient: Ingredient) => (
                                                 <div style={{display: "flex", flexDirection: "column"}}>
-                                                    <IngredientComponent ingredient={ingredient}/>
+                                                    <IngredientComponent ingredient={ingredient} handleDeleteIngredient={handleDeleteIngredient}/>
                                                 </div>
                                             ))
                                         )

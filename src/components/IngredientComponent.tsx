@@ -4,18 +4,27 @@ import Grid from "@mui/material/Grid";
 import React from "react";
 
 type Props = {
-    ingredient: Ingredient
+    ingredient: Ingredient,
+    handleDeleteIngredient:(ingredient:Ingredient ) => void
 }
 
 
-const IngredientComponent = ({ingredient}: Props) => {
+const IngredientComponent = ({ingredient, handleDeleteIngredient}: Props) => {
+
 
     return (
-        <Grid style={{flex: 12, paddingLeft: 120}} container spacing={2} >
-            <Grid item xs={5} ><div>{ingredient.name}</div></Grid>
-            <Grid item xs={5} ><div>{ingredient.quantity}</div></Grid>
-            <Grid item xs={2} >
-                <div><Button style={{marginLeft: 17}}>x</Button></div>
+        <Grid style={{flex: 12, paddingLeft: 120}} container spacing={2}>
+            <Grid item xs={5}>
+                <div>{ingredient.name}</div>
+            </Grid>
+            <Grid item xs={5}>
+                <div>{ingredient.quantity}</div>
+            </Grid>
+            <Grid item xs={2}>
+                <div><Button
+                    style={{marginLeft: 17}}
+                    onClick={()=> handleDeleteIngredient(ingredient)}
+                >x</Button></div>
             </Grid>
         </Grid>
     );
