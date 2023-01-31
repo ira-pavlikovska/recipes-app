@@ -13,6 +13,9 @@ import Stack from '@mui/material/Stack';
 import {Ingredient} from "../models";
 import IngredientComponent from "./IngredientComponent";
 import InstructionStepComponent from "./InstructionStepComponent";
+import {addRecipe} from "../api";
+import {useAppSelector} from "../hooks/useAppSelector";
+import {RootState} from "../store";
 
 type Props = {
     handleCloseModal: () => void
@@ -21,12 +24,29 @@ type Props = {
 
 export default function AddRecipeModal({handleCloseModal, open}: Props) {
 
+    const {user} = useAppSelector((state: RootState) => state.userReducer);
     const [recipeName, setRecipeName] = useState<string>('');
     const [ingredientName, setIngredientName] = useState<string>('');
     const [ingredientQuantity, setIngredientQuantity] = useState<string>('');
     const [instructionStep, setInstructionStep] = useState<string>('');
     const [ingredientObjArr, setIngredientObjArr] = useState<Ingredient[]>([]);
     const [instructionsArr, setInstructionsArr] = useState<string[]>([]);
+
+    const onSave = () => {
+        addRecipe({
+            userId: user.userId,
+            recipeName: recipeName,
+            imageUrl: '',
+            ingredients: ingredientObjArr,
+            instructions: instructionsArr
+        })
+            .then((response: any) => {
+                console.log(`saved - add to redux here`)
+                handleCloseModal()
+            })
+            .catch(err => console.log(err))
+
+    }
 
     const style = {
         position: 'absolute' as 'absolute',
@@ -187,7 +207,7 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
                                         variant="contained"
                                         onClick={handleCloseModal}
                                     >Cancel</Button>
-                                    <Button variant="contained">Save</Button>
+                                    <Button onClick={onSave} variant="contained">Save</Button>
                                 </Stack>
                             </ListItem>
                         </Grid>

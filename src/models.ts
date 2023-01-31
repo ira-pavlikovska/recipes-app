@@ -12,7 +12,7 @@ export type Ingredient = {
 }
 
 export type RecipeType = {
-    recipeId: number;
+    recipeId?: string;
     userId: number;
     recipeName: string;
     imageUrl: string;
