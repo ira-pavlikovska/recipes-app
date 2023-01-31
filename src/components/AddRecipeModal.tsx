@@ -60,7 +60,11 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
     }
 
     const handleDeleteIngredient = (ingredient: Ingredient) => {
-        setIngredientObjArr(ingredientObjArr.filter((item:Ingredient)=> item.name !== ingredient.name ))
+        setIngredientObjArr(ingredientObjArr.filter((item: Ingredient) => item.name !== ingredient.name))
+    }
+
+    const handleDeleteInstructionStep = (step: string) => {
+        setInstructionsArr(instructionsArr.filter((stepItem: string) => stepItem !== step))
     }
 
 
@@ -130,7 +134,8 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
                                         haveIngredients && (
                                             ingredientObjArr.map((ingredient: Ingredient) => (
                                                 <div style={{display: "flex", flexDirection: "column"}}>
-                                                    <IngredientComponent ingredient={ingredient} handleDeleteIngredient={handleDeleteIngredient}/>
+                                                    <IngredientComponent ingredient={ingredient}
+                                                                         handleDeleteIngredient={handleDeleteIngredient}/>
                                                 </div>
                                             ))
                                         )
@@ -163,7 +168,8 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
                                         haveInstructions && (
                                             instructionsArr.map((step: string) => (
                                                 <div style={{display: "flex", flexDirection: "column"}}>
-                                                    <InstructionStepComponent step={step}/>
+                                                    <InstructionStepComponent step={step}
+                                                                              handleDeleteInstructionStep={handleDeleteInstructionStep}/>
                                                 </div>
                                             ))
                                         )

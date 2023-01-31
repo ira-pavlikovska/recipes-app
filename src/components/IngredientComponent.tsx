@@ -5,7 +5,7 @@ import React from "react";
 
 type Props = {
     ingredient: Ingredient,
-    handleDeleteIngredient:(ingredient:Ingredient ) => void
+    handleDeleteIngredient: (ingredient: Ingredient) => void
 }
 
 
@@ -23,7 +23,7 @@ const IngredientComponent = ({ingredient, handleDeleteIngredient}: Props) => {
             <Grid item xs={2}>
                 <div><Button
                     style={{marginLeft: 17}}
-                    onClick={()=> handleDeleteIngredient(ingredient)}
+                    onClick={() => handleDeleteIngredient(ingredient)}
                 >x</Button></div>
             </Grid>
         </Grid>
