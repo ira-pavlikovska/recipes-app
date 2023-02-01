@@ -16,6 +16,8 @@ import InstructionStepComponent from "./InstructionStepComponent";
 import {addRecipe} from "../api";
 import {useAppSelector} from "../hooks/useAppSelector";
 import {RootState} from "../store";
+import {addNewRecipe} from "../reducer/recipesReducer";
+import {useAppDispatch} from "../hooks/useAppDispatch";
 
 type Props = {
     handleCloseModal: () => void
@@ -31,7 +33,7 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
     const [instructionStep, setInstructionStep] = useState<string>('');
     const [ingredientObjArr, setIngredientObjArr] = useState<Ingredient[]>([]);
     const [instructionsArr, setInstructionsArr] = useState<string[]>([]);
-
+    const dispatch = useAppDispatch();
     const onSave = () => {
         addRecipe({
             userId: user.userId,
@@ -41,7 +43,7 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
             instructions: instructionsArr
         })
             .then((response: any) => {
-                console.log(`saved - add to redux here`)
+                dispatch(addNewRecipe(response.data))
                 handleCloseModal()
             })
             .catch(err => console.log(err))
