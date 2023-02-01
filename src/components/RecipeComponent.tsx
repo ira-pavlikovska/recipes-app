@@ -17,7 +17,8 @@ const RecipeComponent = ({recipe}: Props) => {
             <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
                     <div style={{marginTop: 30}}>
-                        <img style={{width: 350, height: 350}} src={recipe.imageUrl}/>
+                        <img style={{width: 350, height: 350}}
+                             src={recipe.imageUrl? recipe.imageUrl : 'https://via.placeholder.com/350x350?text=Yammy!' }/>
                     </div>
                 </Grid>
                 <Grid item xs={12} md={8}>
