@@ -10,7 +10,7 @@ import List from '@mui/material/List';
 import {ListItem} from "@mui/material";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import {Ingredient} from "../models";
+import {Ingredient, RecipeType} from "../models";
 import IngredientComponent from "./IngredientComponent";
 import InstructionStepComponent from "./InstructionStepComponent";
 import {addRecipe} from "../api";
@@ -22,17 +22,18 @@ import {useAppDispatch} from "../hooks/useAppDispatch";
 type Props = {
     handleCloseModal: () => void
     open: boolean
+    recipe?: RecipeType
 }
 
-export default function AddRecipeModal({handleCloseModal, open}: Props) {
+export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) {
 
     const {user} = useAppSelector((state: RootState) => state.userReducer);
-    const [recipeName, setRecipeName] = useState<string>('');
+    const [recipeName, setRecipeName] = useState<string>(recipe ? recipe.recipeName : '');
     const [ingredientName, setIngredientName] = useState<string>('');
     const [ingredientQuantity, setIngredientQuantity] = useState<string>('');
     const [instructionStep, setInstructionStep] = useState<string>('');
-    const [ingredientObjArr, setIngredientObjArr] = useState<Ingredient[]>([]);
-    const [instructionsArr, setInstructionsArr] = useState<string[]>([]);
+    const [ingredientObjArr, setIngredientObjArr] = useState<Ingredient[]>(recipe ? recipe.ingredients : []);
+    const [instructionsArr, setInstructionsArr] = useState<string[]>(recipe ? recipe.instructions : []);
     const dispatch = useAppDispatch();
     const onSave = () => {
         addRecipe({
@@ -209,7 +210,7 @@ export default function AddRecipeModal({handleCloseModal, open}: Props) {
                                         variant="contained"
                                         onClick={handleCloseModal}
                                     >Cancel</Button>
-                                    <Button onClick={onSave} variant="contained">Save</Button>
+                                    <Button onClick={onSave} variant="contained">{recipe? 'Edit' : 'Add'}</Button>
                                 </Stack>
                             </ListItem>
                         </Grid>

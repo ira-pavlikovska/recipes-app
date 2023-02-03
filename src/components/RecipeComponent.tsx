@@ -3,7 +3,8 @@ import {RecipeType} from "../models";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import React from "react";
-import EditRecipeModal from "./EditRecipeModal";
+import AddRecipeModal from "./AddRecipeModal";
+
 
 type Props = {
     recipe: RecipeType
@@ -11,13 +12,14 @@ type Props = {
 
 
 const RecipeComponent = ({recipe}: Props) => {
-    const [openEditModal, setOpenEditModal] = React.useState(false);
+
+    const [openModal, setOpenModal] = React.useState(false);
 
     const handleOpenModal = () => {
-        setOpenEditModal(true);
+        setOpenModal(true);
     }
-    const handleCloseEditModal = () => {
-        setOpenEditModal(false);
+    const handleCloseModal = () => {
+        setOpenModal(false);
     }
 
 
@@ -49,7 +51,7 @@ const RecipeComponent = ({recipe}: Props) => {
                         style={{fontWeight: 'bold'}}>Instructions:</span>{recipe.instructions.map(instruction => (
                         <div>{instruction}</div>
                     ))}</div>
-                    <EditRecipeModal recipe={recipe} handleCloseEditModal={handleCloseEditModal} openEditModal={openEditModal}/>
+                    <AddRecipeModal  recipe={recipe} handleCloseModal={handleCloseModal} open={openModal}/>
                 </Grid>
             </Grid>
         </Box>

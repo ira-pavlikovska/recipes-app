@@ -16,5 +16,9 @@ export function getRecipes(userId: number) {
 }
 
 export function addRecipe(recipe: RecipeType) {
-    return axios.post(BASE_URL + 'recipe',recipe )
+    return axios.put(BASE_URL + 'recipe',recipe )
+}
+
+export function updateRecipe(recipe: RecipeType) {
+    return axios.patch(BASE_URL + 'recipe',recipe )
 }

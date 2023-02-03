@@ -70,7 +70,24 @@ app.get('/recipes', function (req, res) {
     // res.send(recipes.filter(r => r.userId === parseInt(userId, 10)))
 })
 
-app.post('/recipe', function (req, res) {
+app.put('/recipe', function (req, res) {
+    const filePath = path.join(__dirname, 'recipes.json');
+    let recipe = req.body
+    recipe.recipeId = uuidv4();
+    try {
+        let data = fs.readFileSync(filePath, 'utf8');
+        let arr = JSON.parse(data)
+        arr.push(recipe)
+        let dataStr = JSON.stringify(arr)
+        fs.writeFileSync(filePath, dataStr)
+    } catch (err) {
+        console.error(err);
+    }
+
+    res.send(JSON.stringify(recipe))
+})
+
+app.patch('/recipe', function (req, res) {
     const filePath = path.join(__dirname, 'recipes.json');
     let recipe = req.body
     recipe.recipeId = uuidv4();
