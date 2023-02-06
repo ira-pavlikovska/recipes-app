@@ -152,7 +152,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
 
                             </ListItem>
                             <ListItem>
-                                <div style={{justifyContent: 'center', width: '100%'}}>
+                                <div style={{justifyContent: 'center', width: '100%', height: 200, overflow: 'scroll'}}>
                                     {
                                         haveIngredients && (
                                             ingredientObjArr.map((ingredient: Ingredient) => (
@@ -186,7 +186,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                                 >Add</Button>
                             </ListItem>
                             <ListItem>
-                                <div style={{justifyContent: 'center', width: '100%'}}>
+                                <div style={{justifyContent: 'center', width: '100%', height: 200, overflow: 'scroll'}}>
                                     {
                                         haveInstructions && (
                                             instructionsArr.map((step: string) => (
