@@ -28,7 +28,6 @@ const users = [
         password: 'asdfasdf',
         token: 'asdf'
     },
-
 ]
 
 const loginError = [

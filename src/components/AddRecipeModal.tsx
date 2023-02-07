@@ -13,10 +13,10 @@ import Stack from '@mui/material/Stack';
 import {Ingredient, RecipeType} from "../models";
 import IngredientComponent from "./IngredientComponent";
 import InstructionStepComponent from "./InstructionStepComponent";
-import {addRecipe} from "../api";
+import {addRecipe, updateRecipe} from "../api";
 import {useAppSelector} from "../hooks/useAppSelector";
 import {RootState} from "../store";
-import {addNewRecipe} from "../reducer/recipesReducer";
+import {addNewRecipe, updateCurrentRecipe} from "../reducer/recipesReducer";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 
 type Props = {
@@ -36,18 +36,35 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
     const [instructionsArr, setInstructionsArr] = useState<string[]>(recipe ? recipe.instructions : []);
     const dispatch = useAppDispatch();
     const onSave = () => {
-        addRecipe({
-            userId: user.userId,
-            recipeName: recipeName,
-            imageUrl: '',
-            ingredients: ingredientObjArr,
-            instructions: instructionsArr
-        })
-            .then((response: any) => {
-                dispatch(addNewRecipe(response.data))
-                handleCloseModal()
+        if (recipe && recipe.recipeId) {
+            updateRecipe({
+                recipeId: recipe.recipeId,
+                userId: user.userId,
+                recipeName: recipeName,
+                imageUrl: '',
+                ingredients: ingredientObjArr,
+                instructions: instructionsArr
             })
-            .catch(err => console.log(err))
+                .then((response: any) => {
+                    dispatch(updateCurrentRecipe(response.data))
+                    handleCloseModal()
+                })
+                .catch(err => console.log(err))
+
+        }else{
+            addRecipe({
+                userId: user.userId,
+                recipeName: recipeName,
+                imageUrl: '',
+                ingredients: ingredientObjArr,
+                instructions: instructionsArr
+            })
+                .then((response: any) => {
+                    dispatch(addNewRecipe(response.data))
+                    handleCloseModal()
+                })
+                .catch(err => console.log(err))
+        }
 
     }
 

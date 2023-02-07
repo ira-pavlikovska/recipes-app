@@ -20,13 +20,25 @@ export const recipesSlice = createSlice({
         addNewRecipe: (state, action: PayloadAction<RecipeType>) => {
             const recipe = action.payload
             state.recipes = [...state.recipes, recipe]
-        }
+        },
+        updateCurrentRecipe: (state, action: PayloadAction<RecipeType>) => {
+            const recipe = action.payload
+            console.log(recipe);
+            let updatedRecipesArray = state.recipes;
+
+            let idx = updatedRecipesArray.findIndex((item)=> item.recipeId === recipe.recipeId)
+            updatedRecipesArray.splice(idx,1,recipe)
+
+            state.recipes = updatedRecipesArray
+            console.log(state.recipes);
+        },
     }
 })
 
 export const {
     setRecipes,
-    addNewRecipe
+    addNewRecipe,
+    updateCurrentRecipe
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;
