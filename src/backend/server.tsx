@@ -89,7 +89,7 @@ app.put('/recipe', function (req, res) {
 app.patch('/recipe', function (req, res) {
     const filePath = path.join(__dirname, 'recipes.json');
     let recipe = req.body
-    recipe.recipeId = uuidv4();
+    // recipe.recipeId = uuidv4();
     try {
         let data = fs.readFileSync(filePath, 'utf8');
         let arr = JSON.parse(data)

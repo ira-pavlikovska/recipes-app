@@ -41,7 +41,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                 recipeId: recipe.recipeId,
                 userId: user.userId,
                 recipeName: recipeName,
-                imageUrl: '',
+                imageUrl: recipe.imageUrl,
                 ingredients: ingredientObjArr,
                 instructions: instructionsArr
             })
