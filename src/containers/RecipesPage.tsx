@@ -44,10 +44,10 @@ function RecipesPage() {
     }
 
     const handleDeleteRecipe = (res: RecipeType) => {
-        deleteRecipe('' + res.recipeId)
+        deleteRecipe(res.recipeId)
             .then((resp) => {
                 if (resp.status === 200) {
-                    dispatch(deleteCurrentRecipe(res))
+                    dispatch(deleteCurrentRecipe(res.recipeId))
                 } else {
                     console.log('Recipe did not delete from Server')
                 }

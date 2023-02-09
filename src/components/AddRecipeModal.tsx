@@ -55,6 +55,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
 
         }else{
             addRecipe({
+                recipeId: '',
                 userId: user.userId,
                 recipeName: recipeName,
                 imageUrl: '',

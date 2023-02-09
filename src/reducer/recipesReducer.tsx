@@ -30,11 +30,11 @@ export const recipesSlice = createSlice({
             state.recipes = [...updatedRecipesArray]
             console.log(state.recipes);
         },
-        deleteCurrentRecipe: (state, action: PayloadAction<RecipeType>) => {
-            const recipe = action.payload
-            console.log(recipe.recipeId);
+        deleteCurrentRecipe: (state, action: PayloadAction<string>) => {
+            const recipeId = action.payload
+            // console.log(recipe.recipeId);
             state.recipes = state.recipes.filter(
-                (item: RecipeType) => item.recipeId !== recipe.recipeId
+                (item: RecipeType) => item.recipeId !== recipeId
             );
         },
 
