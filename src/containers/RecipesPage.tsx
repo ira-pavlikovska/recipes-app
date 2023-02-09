@@ -43,6 +43,12 @@ function RecipesPage() {
         setOpenModal(false);
     }
 
+    const handleDeleteRecipe = (res: RecipeType) => {
+
+        console.log('delete')
+    }
+
+
     const StyledPaper = styled(Paper)(({theme}) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -82,7 +88,7 @@ function RecipesPage() {
                             {
                                 haveRecipes && (
                                     recipes.map((recipe: RecipeType) => (
-                                        <div><RecipeComponent recipe={recipe}/></div>
+                                        <div><RecipeComponent recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}/></div>
                                     ))
                                 )
                             }

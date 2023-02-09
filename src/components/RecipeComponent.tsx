@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import {RecipeType} from "../models";
+import {Ingredient, RecipeType} from "../models";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import React from "react";
@@ -9,23 +9,23 @@ import {RootState} from "../store";
 
 
 type Props = {
-    recipe: RecipeType
+    recipe: RecipeType,
+    handleDeleteRecipe: (recipe: RecipeType) => void
 }
 
 
-const RecipeComponent = ({recipe}: Props) => {
+const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
 
     const [openModal, setOpenModal] = React.useState(false);
 
 
     const handleOpenModal = () => {
-
         setOpenModal(true);
     }
+
     const handleCloseModal = () => {
         setOpenModal(false);
     }
-
 
     return (
 
@@ -43,8 +43,14 @@ const RecipeComponent = ({recipe}: Props) => {
                         <Button
                             variant="outlined"
                             style={{float: 'right', marginRight: 20}}
+                            onClick={()=> handleDeleteRecipe(recipe)}
+                        >Delete</Button>
+                        <Button
+                            variant="outlined"
+                            style={{float: 'right', marginRight: 20}}
                             onClick={handleOpenModal}
                         >Edit</Button>
+
                     </div>
                     <div style={{marginTop: 30, textAlign: 'left'}}>
                         <span style={{fontWeight: 'bold'}}> Ingredients:</span>{recipe.ingredients.map(ingredient => (
@@ -55,7 +61,7 @@ const RecipeComponent = ({recipe}: Props) => {
                         style={{fontWeight: 'bold'}}>Instructions:</span>{recipe.instructions.map(instruction => (
                         <div>{instruction}</div>
                     ))}</div>
-                    <AddRecipeModal  recipe={recipe} handleCloseModal={handleCloseModal} open={openModal}/>
+                    <AddRecipeModal recipe={recipe} handleCloseModal={handleCloseModal} open={openModal}/>
                 </Grid>
             </Grid>
         </Box>
