@@ -103,6 +103,23 @@ app.patch('/recipe', function (req, res) {
     res.send(JSON.stringify(recipe))
 })
 
+app.delete('/recipe/:id', function (req, res) {
+    const { id } = req.params
+
+    const filePath = path.join(__dirname, 'recipes.json');
+    try {
+        let data = fs.readFileSync(filePath, 'utf8');
+        let arr = JSON.parse(data)
+        arr = arr.filter(item => item.recipeId !== id)
+        let dataStr = JSON.stringify(arr)
+        fs.writeFileSync(filePath, dataStr)
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('error')
+    }
+
+    res.send('ok')
+})
 
 console.log(`server is running ...`)
 

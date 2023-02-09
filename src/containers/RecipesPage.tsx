@@ -3,7 +3,7 @@ import {styled} from '@mui/material/styles';
 import {useAppSelector} from '../hooks/useAppSelector';
 import {RootState} from "../store";
 import {useEffect} from "react";
-import {getRecipes} from "../api";
+import {deleteRecipe, getRecipes} from "../api";
 import {RecipeType} from "../models";
 import Header from "../components/Header";
 import RecipeComponent from "../components/RecipeComponent";
@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
-import {setRecipes} from "../reducer/recipesReducer";
+import {setRecipes, updateCurrentRecipe, deleteCurrentRecipe} from "../reducer/recipesReducer";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 import AddRecipeModal from '../components/AddRecipeModal';
 
@@ -44,6 +44,16 @@ function RecipesPage() {
     }
 
     const handleDeleteRecipe = (res: RecipeType) => {
+        deleteRecipe('' + res.recipeId)
+            .then((resp) => {
+                if (resp.status === 200) {
+                    dispatch(deleteCurrentRecipe(res))
+                } else {
+                    console.log('Recipe did not delete from Server')
+                }
+
+            })
+            .catch((error: any) => console.log(JSON.stringify(error)))
 
         console.log('delete')
     }
@@ -88,11 +98,12 @@ function RecipesPage() {
                             {
                                 haveRecipes && (
                                     recipes.map((recipe: RecipeType) => (
-                                        <div><RecipeComponent recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}/></div>
+                                        <div><RecipeComponent recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}/>
+                                        </div>
                                     ))
                                 )
                             }
-                            <AddRecipeModal handleCloseModal={handleCloseModal} open={openModal} />
+                            <AddRecipeModal handleCloseModal={handleCloseModal} open={openModal}/>
                         </Grid>
                     </StyledPaper>
                 </Grid>

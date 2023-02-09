@@ -26,17 +26,26 @@ export const recipesSlice = createSlice({
             console.log(recipe);
             let updatedRecipesArray = state.recipes;
             let idx = updatedRecipesArray.findIndex((item) => item.recipeId === recipe.recipeId)
-            updatedRecipesArray.splice(idx,1,recipe)
+            updatedRecipesArray.splice(idx, 1, recipe)
             state.recipes = [...updatedRecipesArray]
             console.log(state.recipes);
         },
+        deleteCurrentRecipe: (state, action: PayloadAction<RecipeType>) => {
+            const recipe = action.payload
+            console.log(recipe.recipeId);
+            state.recipes = state.recipes.filter(
+                (item: RecipeType) => item.recipeId !== recipe.recipeId
+            );
+        },
+
     }
 })
 
 export const {
     setRecipes,
     addNewRecipe,
-    updateCurrentRecipe
+    updateCurrentRecipe,
+    deleteCurrentRecipe
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;

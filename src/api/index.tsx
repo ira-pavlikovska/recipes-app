@@ -22,3 +22,7 @@ export function addRecipe(recipe: RecipeType) {
 export function updateRecipe(recipe: RecipeType) {
     return axios.patch(BASE_URL + 'recipe',recipe )
 }
+
+export function deleteRecipe(recipeId: string) {
+    return axios.delete(BASE_URL + `recipe/${recipeId}` )
+}
