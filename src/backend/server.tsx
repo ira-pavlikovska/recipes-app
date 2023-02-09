@@ -93,7 +93,7 @@ app.patch('/recipe', function (req, res) {
     try {
         let data = fs.readFileSync(filePath, 'utf8');
         let arr = JSON.parse(data)
-        arr.push(recipe)
+        arr = arr.map(item => item.recipeId === recipe.recipeId ? recipe : item)
         let dataStr = JSON.stringify(arr)
         fs.writeFileSync(filePath, dataStr)
     } catch (err) {

@@ -86,7 +86,7 @@ function RecipesPage() {
                                     ))
                                 )
                             }
-                            <AddRecipeModal handleCloseModal={handleCloseModal} open={openModal}/>
+                            <AddRecipeModal handleCloseModal={handleCloseModal} open={openModal} />
                         </Grid>
                     </StyledPaper>
                 </Grid>

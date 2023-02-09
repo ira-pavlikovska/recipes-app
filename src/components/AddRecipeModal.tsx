@@ -16,7 +16,8 @@ import InstructionStepComponent from "./InstructionStepComponent";
 import {addRecipe, updateRecipe} from "../api";
 import {useAppSelector} from "../hooks/useAppSelector";
 import {RootState} from "../store";
-import {addNewRecipe, updateCurrentRecipe} from "../reducer/recipesReducer";
+import {addNewRecipe} from "../reducer/recipesReducer";
+import {updateCurrentRecipe} from "../reducer/recipesReducer";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 
 type Props = {
@@ -36,7 +37,8 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
     const [instructionsArr, setInstructionsArr] = useState<string[]>(recipe ? recipe.instructions : []);
     const dispatch = useAppDispatch();
     const onSave = () => {
-        if (recipe && recipe.recipeId) {
+
+        if(recipe && recipe.recipeId){
             updateRecipe({
                 recipeId: recipe.recipeId,
                 userId: user.userId,
@@ -64,9 +66,10 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                     handleCloseModal()
                 })
                 .catch(err => console.log(err))
+
         }
 
-    }
+           }
 
     const style = {
         position: 'absolute' as 'absolute',

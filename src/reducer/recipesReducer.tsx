@@ -25,11 +25,9 @@ export const recipesSlice = createSlice({
             const recipe = action.payload
             console.log(recipe);
             let updatedRecipesArray = state.recipes;
-
-            let idx = updatedRecipesArray.findIndex((item)=> item.recipeId === recipe.recipeId)
+            let idx = updatedRecipesArray.findIndex((item) => item.recipeId === recipe.recipeId)
             updatedRecipesArray.splice(idx,1,recipe)
-
-            state.recipes = updatedRecipesArray
+            state.recipes = [...updatedRecipesArray]
             console.log(state.recipes);
         },
     }
