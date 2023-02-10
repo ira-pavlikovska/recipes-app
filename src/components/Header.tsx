@@ -9,6 +9,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Logout from '@mui/icons-material/Logout';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {useNavigate} from "react-router-dom";
 
@@ -28,17 +29,26 @@ export default function Header() {
     const handleLogout = () => {
         navigate('/')
     }
+    const handleManageAccount = () => {
+        navigate('/personalAccount')
+    }
 
     return (
         <React.Fragment>
-            <div style={{display:'flex'}}>
-                  <span style={{color: 'rgba(0, 0, 0, 0.6)',display:'flex', alignItems: 'center', justifyContent:'center', flex: 11}}>
+            <div style={{display: 'flex'}}>
+                  <span style={{
+                      color: 'rgba(0, 0, 0, 0.6)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flex: 11
+                  }}>
                         <h2>
                             {user.firstName + "'" +
                             's'} Recipes book
                         </h2>
                     </span>
-                <span style={{ flex: 1, display:'flex', justifyContent:'center'}}>
+                <span style={{flex: 1, display: 'flex', justifyContent: 'center'}}>
     <Tooltip title="Account settings">
         <IconButton
             onClick={handleClick}
@@ -89,14 +99,24 @@ export default function Header() {
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
                 <MenuItem>
-                    <ListItemIcon >
+                    <ListItemIcon>
                         <Logout
                             fontSize="small"
                             onClick={handleLogout}
-                            />
+                        />
                     </ListItemIcon>
                     Logout
                 </MenuItem>
+                <MenuItem>
+                    <ListItemIcon>
+                        <ManageAccountsIcon
+                            fontSize="small"
+                            onClick={handleManageAccount}
+                        />
+                    </ListItemIcon>
+                    Account info
+                </MenuItem>
+
             </Menu>
         </React.Fragment>
     );
