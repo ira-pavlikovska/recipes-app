@@ -13,22 +13,6 @@ const { v4: uuidv4 } = require('uuid');
 
 app.use(cors())
 
-const users = [
-    {
-        id: 1,
-        firstName: 'Iryna',
-        username: 'iryna',
-        password: 'asdf',
-        token: 'asdfasdfasdfasdfasdf'
-    },
-    {
-        id: 2,
-        firstName: 'Serega',
-        username: 'serega',
-        password: 'asdfasdf',
-        token: 'asdf'
-    },
-]
 
 const loginError = [
     {
@@ -40,15 +24,22 @@ const loginError = [
 
 app.post('/login', function (req, res) {
     const {username, password} = req.body
-    const user = users.filter(u => u.username === username && u.password === password)[0]
-    let result = '';
-    if (users.includes(user)) {
-        result = user
-    } else {
-        result = loginError[0]
+    const filePath = path.join(__dirname, 'users.json');
+    try {
+        const data = fs.readFileSync(filePath, 'utf8');
+        const users = JSON.parse(data);
+        const user = users.filter(u => u.username === username && u.password === password)[0]
+        let result = '';
+        if (users.includes(user)) {
+            result = user
+        } else {
+            result = loginError[0]
+        }
+        res.send(result)
+    } catch (err) {
+        console.error(err);
     }
-    // console.log(`login ${JSON.stringify(user)}`);
-    res.send(result)
+
 })
 
 app.get('/recipes', function (req, res) {
