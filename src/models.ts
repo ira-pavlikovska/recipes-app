@@ -1,8 +1,10 @@
 export type UserType = {
     userId: number;
     firstName: string;
+    lastName: string;
     username: string;
     password: string;
+    email: string;
     token: string
 };
 

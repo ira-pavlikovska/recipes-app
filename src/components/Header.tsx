@@ -17,7 +17,6 @@ import {useNavigate} from "react-router-dom";
 export default function Header() {
     let navigate = useNavigate();
     const {user} = useAppSelector((state: RootState) => state.userReducer);
-
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
