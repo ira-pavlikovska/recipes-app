@@ -112,6 +112,23 @@ app.delete('/recipe/:id', function (req, res) {
     res.send('ok')
 })
 
+//update first name
+app.patch('/user', function (req, res) {
+    const filePath = path.join(__dirname, 'users.json');
+    let user = req.body
+    try {
+        let data = fs.readFileSync(filePath, 'utf8');
+        let arr = JSON.parse(data)
+        arr = arr.map(item => item.id === user.id ? user : item)
+        let dataStr = JSON.stringify(arr)
+        fs.writeFileSync(filePath, dataStr)
+    } catch (err) {
+        console.error(err);
+    }
+
+    res.send(JSON.stringify(user))
+})
+
 console.log(`server is running ...`)
 
 

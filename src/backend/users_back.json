@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "firstName": "Iryna",
+    "lastName": "Pavlikovska",
+    "username": "iryna",
+    "password": "asdf",
+    "email": "irina.pavlikovska@gmail.com",
+    "token": "asdfasdfasdfasdfasdf"
+  },
+  {
+    "id": 2,
+    "firstName": "Serega",
+    "lastName": "Pavlikovskiy",
+    "username": "serega",
+    "password": "asdfasdf",
+    "email": "pavlikovskiy@gmail.com",
+    "token": "asdf"
+  }
+]
