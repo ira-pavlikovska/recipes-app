@@ -53,7 +53,8 @@ function PersonalAccountPage() {
                             </InputWrapper>
 
                             <ListItem style={{paddingTop: 20}}>
-                                <ListItemText>First name goes here</ListItemText>
+                                <ListItemText>First name</ListItemText>
+                                <ListItemText>{user.firstName}</ListItemText>
                                 <IconButton
                                     onClick={() => console.log('clicked Edit first name ')}>
                                     <EditIcon/>
@@ -67,24 +68,28 @@ function PersonalAccountPage() {
                                 {/*/>*/}
                             </ListItem>
                             <ListItem style={{paddingTop: 20}}>
-                                <ListItemText>Last name goes here</ListItemText>
+                                <ListItemText>Last name</ListItemText>
+                                <ListItemText>{user.lastName}</ListItemText>
                                 <IconButton
                                     onClick={() => console.log('clicked Edit last name ')}>
                                     <EditIcon/>
                                 </IconButton>
                             </ListItem>
                             <ListItem style={{paddingTop: 20}}>
-                                <ListItemText>Password goes here</ListItemText>
+                                <ListItemText>Password</ListItemText>
+                                <ListItemText>{user.password}</ListItemText>
                                 <IconButton
                                     onClick={() => console.log('clicked Edit password ')}>
                                     <EditIcon/>
                                 </IconButton>
                             </ListItem>
                             <ListItem style={{paddingTop: 20}}>
-                                <ListItemText>Email goes here</ListItemText>
+                                <ListItemText>Email</ListItemText>
+                                <ListItemText>{user.email}</ListItemText>
                             </ListItem>
                             <ListItem style={{paddingTop: 20}}>
-                                <ListItemText>Username goes here</ListItemText>
+                                <ListItemText>Username</ListItemText>
+                                <ListItemText>{user.username}</ListItemText>
                             </ListItem>
                         </StyledList>
                     </List>
