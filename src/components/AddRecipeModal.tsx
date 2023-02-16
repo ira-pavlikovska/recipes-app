@@ -41,7 +41,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
         if(recipe && recipe.recipeId){
             updateRecipe({
                 recipeId: recipe.recipeId,
-                userId: user.userId,
+                userId: user.id,
                 recipeName: recipeName,
                 imageUrl: recipe.imageUrl,
                 ingredients: ingredientObjArr,
@@ -56,7 +56,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
         }else{
             addRecipe({
                 recipeId: '',
-                userId: user.userId,
+                userId: user.id,
                 recipeName: recipeName,
                 imageUrl: '',
                 ingredients: ingredientObjArr,

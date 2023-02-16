@@ -23,7 +23,7 @@ function RecipesPage() {
     const dispatch = useAppDispatch();
     const {user} = useAppSelector((state: RootState) => state.userReducer);
     const {recipes} = useAppSelector((state: RootState) => state.recipesReducer);
-    const userId = user.userId
+    const userId = user.id
     if (!userId) {
         navigate('/')
     }

@@ -26,7 +26,7 @@ export const userSlice = createSlice({
             const user = action.payload
             console.log(`reducer ${JSON.stringify(user)}`)
             return {...state,
-                user: {userId: user.id, username: user.username, firstName: user.firstName, lastName: user.lastName, password: user.password, email: user.email, token: user.token}
+                user: {id: user.id, username: user.username, firstName: user.firstName, lastName: user.lastName, password: user.password, email: user.email, token: user.token}
             }
         },
         updateCurrentFirstName: (state, action) => {
