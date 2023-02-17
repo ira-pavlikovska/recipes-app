@@ -13,9 +13,9 @@ import {RootState} from "../store";
 import {useState} from "react";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 import {UserType} from "../models";
-import {updateUserFirstName} from "../api"
+import {updateUserInfo} from "../api"
 import {updateCurrentRecipe} from "../reducer/recipesReducer";
-import {updateCurrentFirstName} from "../reducer/userReducer";
+import {updateCurrentUserInfo} from "../reducer/userReducer";
 
 const InputWrapper = styled('div')({
     padding: 20,
@@ -39,8 +39,6 @@ const StyledList = styled(List)(({theme}) => ({
 function PersonalAccountPage() {
     const dispatch = useAppDispatch();
     const [showEdit, setShowEdit] = useState<boolean>(false);
-    // const [firstName, setFirstName] = useState<string>('');
-    // const [lastName, setLastName] = useState<string>('');
     const {user} = useAppSelector((state: RootState) => state.userReducer);
     console.log(user)
 
@@ -52,22 +50,12 @@ function PersonalAccountPage() {
     }
 
     const handleSave = () => {
-        updateUserFirstName(
+        updateUserInfo(
             updatedUser
-        //     {
-        //     id: user.userId,
-        //     firstName: firstName,
-        //     lastName: user.lastName,
-        //     username: user.username,
-        //     password: user.password,
-        //     email: user.email,
-        //     token: user.token
-        // }
-
         )
             .then((response: any) => {
                 console.log(JSON.stringify(response))
-                dispatch(updateCurrentFirstName(response.data))
+                dispatch(updateCurrentUserInfo(response.data))
 
             })
             .catch((error: any) => console.log("error")
@@ -92,84 +80,82 @@ function PersonalAccountPage() {
                         <StyledList>
                             <InputWrapper>
                                 <h2>Personal info</h2>
+                                <IconButton
+                                    onClick={handleEdit}>
+                                    <EditIcon/>
+                                </IconButton>
                             </InputWrapper>
 
                             {
                                 (!showEdit) ?
-                                    <ListItem style={{paddingTop: 20}}>
-                                        <ListItemText>First name</ListItemText>
-                                        <ListItemText>{user.firstName}</ListItemText>
-                                        <IconButton
-                                            onClick={handleEdit}>
-                                            <EditIcon/>
-                                        </IconButton>
-                                    </ListItem>
+                                    <>
+                                        <ListItem style={{paddingTop: 20}}>
+                                            <ListItemText>First name</ListItemText>
+                                            <ListItemText>{user.firstName}</ListItemText>
+                                        </ListItem>
+                                        <ListItem style={{paddingTop: 20}}>
+                                            <ListItemText>Last name</ListItemText>
+                                            <ListItemText>{user.lastName}</ListItemText>
+                                        </ListItem>
+                                        <ListItem style={{paddingTop: 20}}>
+                                            <ListItemText>Password</ListItemText>
+                                            <ListItemText>{user.password}</ListItemText>
+                                        </ListItem>
+                                        <ListItem style={{paddingTop: 20}}>
+                                            <ListItemText>Email</ListItemText>
+                                            <ListItemText>{user.email}</ListItemText>
+                                        </ListItem>
+                                        <ListItem style={{paddingTop: 20}}>
+                                            <ListItemText>Username</ListItemText>
+                                            <ListItemText>{user.username}</ListItemText>
+                                        </ListItem>
+                                    </>
+
                                     :
-                                    <ListItem style={{paddingTop: 20}}>
-                                        <ListItemText>First name</ListItemText>
-                                        <TextField
-                                            required
-                                            tabIndex={1}
-                                            label="First name"
-                                            value={updatedUser.firstName}
-                                            onChange={(e) => {
-                                                // setFirstName(e.target.value)
-                                                setUpdatedUser({...updatedUser, firstName: e.target.value})
-                                            }}
-                                        />
-                                        <Button
-                                            onClick={handleSave}>
-                                            Save
-                                        </Button>
-                                    </ListItem>
+                                    <>
+                                        <ListItem style={{paddingTop: 20}}>
+                                            <ListItemText>First name</ListItemText>
+                                            <TextField
+                                                required
+                                                tabIndex={1}
+                                                label="First name"
+                                                value={updatedUser.firstName}
+                                                onChange={(e) => {
+                                                    setUpdatedUser({...updatedUser, firstName: e.target.value})
+                                                }}
+                                            />
+                                        </ListItem>
+                                        <ListItem style={{paddingTop: 20}}>
+                                            <ListItemText>Last name</ListItemText>
+                                            <TextField
+                                                required
+                                                tabIndex={1}
+                                                label="Last name"
+                                                value={updatedUser.lastName}
+                                                onChange={(e) => {
+                                                    setUpdatedUser({...updatedUser, lastName: e.target.value})
+                                                }}
+                                            />
+                                        </ListItem>
+                                        <ListItem style={{paddingTop: 20}}>
+                                            <ListItemText>Password</ListItemText>
+                                            <TextField
+                                                required
+                                                tabIndex={1}
+                                                label="Password"
+                                                value={updatedUser.password}
+                                                onChange={(e) => {
+                                                    setUpdatedUser({...updatedUser, password: e.target.value})
+                                                }}
+                                            />
+                                        </ListItem>
+                                    </>
                             }
-                            {
-                                (!showEdit) ?
-                                    <ListItem style={{paddingTop: 20}}>
-                                        <ListItemText>Last name</ListItemText>
-                                        <ListItemText>{user.lastName}</ListItemText>
-                                        <IconButton
-                                            onClick={() => console.log('clicked Edit last name ')}>
-                                            <EditIcon/>
-                                        </IconButton>
-                                    </ListItem> :
-                                    <ListItem style={{paddingTop: 20}}>
-                                        <ListItemText>Last name</ListItemText>
-                                        <TextField
-                                            required
-                                            tabIndex={1}
-                                            label="Last name"
-                                            value={user.lastName}
-                                            onChange={(e) => {
-                                                setUpdatedUser({...updatedUser, lastName: e.target.value})
-                                                // setLastName(e.target.value)
-                                            }}
-                                        />
-                                        <Button
-                                            onClick={handleSave}>
-                                            Save
-                                        </Button>
-                                    </ListItem>
+                            <Button
+                                onClick={handleSave}>
+                                Save
+                            </Button>
 
-
-                            }
-
-                            <ListItem style={{paddingTop: 20}}>
-                                <ListItemText>Password</ListItemText>
-                                <ListItemText>{user.password}</ListItemText>
-                                <IconButton
-                                    onClick={() => console.log('clicked Edit password ')}>
-                                    <EditIcon/>
-                                </IconButton>
-                            </ListItem>
-                            <ListItem style={{paddingTop: 20}}>
-                                <ListItemText>Email</ListItemText>
-                                <ListItemText>{user.email}</ListItemText>
-                            </ListItem>
-                            <ListItem style={{paddingTop: 20}}>
-                                <ListItemText>Username</ListItemText>
-                                <ListItemText>{user.username}</ListItemText>
-                            </ListItem>
                         </StyledList>
                     </List>
                 </Grid>

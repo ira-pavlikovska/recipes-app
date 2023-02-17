@@ -29,7 +29,7 @@ export const userSlice = createSlice({
                 user: {id: user.id, username: user.username, firstName: user.firstName, lastName: user.lastName, password: user.password, email: user.email, token: user.token}
             }
         },
-        updateCurrentFirstName: (state, action) => {
+        updateCurrentUserInfo: (state, action) => {
             const user = action.payload
             state.user = user
         }
@@ -41,7 +41,7 @@ export const userSlice = createSlice({
 
 export const {
     setUser,
-    updateCurrentFirstName
+    updateCurrentUserInfo
    } = userSlice.actions;
 
 export default userSlice.reducer;
