@@ -78,13 +78,12 @@ function PersonalAccountPage() {
                     }}>
 
                         <StyledList>
-                            <InputWrapper>
-                                <h2>Personal info</h2>
+                                <div style={{fontSize: 25, display: 'inline'}}>Personal info</div>
                                 <IconButton
+                                    style={{ display: 'inline', marginLeft: 20}}
                                     onClick={handleEdit}>
                                     <EditIcon/>
                                 </IconButton>
-                            </InputWrapper>
 
                             {
                                 (!showEdit) ?
@@ -151,11 +150,17 @@ function PersonalAccountPage() {
                                         </ListItem>
                                     </>
                             }
+
                             <Button
+                                style={{marginTop: 50}}
                                 onClick={handleSave}>
                                 Save
                             </Button>
-
+                            <Button
+                                style={{marginTop: 50}}
+                                onClick={handleSave}>
+                                Cancel
+                            </Button>
                         </StyledList>
                     </List>
                 </Grid>
