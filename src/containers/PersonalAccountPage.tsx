@@ -83,12 +83,12 @@ function PersonalAccountPage() {
                     }}>
 
                         <StyledList>
-                                <div style={{fontSize: 25, display: 'inline'}}>Personal info</div>
-                                <IconButton
-                                    style={{ display: 'inline', marginLeft: 20}}
-                                    onClick={handleEdit}>
-                                    <EditIcon/>
-                                </IconButton>
+                            <div style={{fontSize: 25, display: 'inline'}}>Personal info</div>
+                            <IconButton
+                                style={{display: 'inline', marginLeft: 20}}
+                                onClick={handleEdit}>
+                                <EditIcon/>
+                            </IconButton>
 
                             {
                                 (!showEdit) ?
@@ -117,7 +117,7 @@ function PersonalAccountPage() {
 
                                     :
                                     <>
-                                        <ListItem style={{paddingTop: 20 }}>
+                                        <ListItem style={{paddingTop: 20, width: 500}}>
                                             <ListItemText>First name</ListItemText>
                                             <TextField
                                                 required
@@ -129,7 +129,7 @@ function PersonalAccountPage() {
                                                 }}
                                             />
                                         </ListItem>
-                                        <ListItem style={{paddingTop: 20}}>
+                                        <ListItem style={{paddingTop: 20, width: 500}}>
                                             <ListItemText>Last name</ListItemText>
                                             <TextField
                                                 required
@@ -141,7 +141,7 @@ function PersonalAccountPage() {
                                                 }}
                                             />
                                         </ListItem>
-                                        <ListItem style={{paddingTop: 20}}>
+                                        <ListItem style={{paddingTop: 20, width: 500}}>
                                             <ListItemText>Password</ListItemText>
                                             <TextField
                                                 required
@@ -153,20 +153,20 @@ function PersonalAccountPage() {
                                                 }}
                                             />
                                         </ListItem>
-                                        <Button
-                                            style={{marginTop: 50}}
-                                            onClick={handleSave}>
-                                            Save
-                                        </Button>
-                                        <Button
-                                            style={{marginTop: 50}}
-                                            onClick={handleCancel}>
-                                            Cancel
-                                        </Button>
-
+                                        <ListItem style={{ justifyContent: 'center'}}>
+                                            <Button
+                                                style={{marginTop: 50}}
+                                                onClick={handleSave}>
+                                                Save
+                                            </Button>
+                                            <Button
+                                                style={{marginTop: 50}}
+                                                onClick={handleCancel}>
+                                                Cancel
+                                            </Button>
+                                        </ListItem>
                                     </>
                             }
-
                         </StyledList>
                     </List>
                 </Grid>
