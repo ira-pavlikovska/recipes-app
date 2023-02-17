@@ -49,6 +49,11 @@ function PersonalAccountPage() {
         setShowEdit(true);
     }
 
+    const handleCancel = () => {
+        setShowEdit(false);
+    }
+
+
     const handleSave = () => {
         updateUserInfo(
             updatedUser
@@ -112,7 +117,7 @@ function PersonalAccountPage() {
 
                                     :
                                     <>
-                                        <ListItem style={{paddingTop: 20}}>
+                                        <ListItem style={{paddingTop: 20 }}>
                                             <ListItemText>First name</ListItemText>
                                             <TextField
                                                 required
@@ -148,19 +153,20 @@ function PersonalAccountPage() {
                                                 }}
                                             />
                                         </ListItem>
+                                        <Button
+                                            style={{marginTop: 50}}
+                                            onClick={handleSave}>
+                                            Save
+                                        </Button>
+                                        <Button
+                                            style={{marginTop: 50}}
+                                            onClick={handleCancel}>
+                                            Cancel
+                                        </Button>
+
                                     </>
                             }
 
-                            <Button
-                                style={{marginTop: 50}}
-                                onClick={handleSave}>
-                                Save
-                            </Button>
-                            <Button
-                                style={{marginTop: 50}}
-                                onClick={handleSave}>
-                                Cancel
-                            </Button>
                         </StyledList>
                     </List>
                 </Grid>
