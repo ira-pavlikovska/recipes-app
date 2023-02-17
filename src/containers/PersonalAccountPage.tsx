@@ -14,7 +14,6 @@ import {useState} from "react";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 import {UserType} from "../models";
 import {updateUserInfo} from "../api"
-import {updateCurrentRecipe} from "../reducer/recipesReducer";
 import {updateCurrentUserInfo} from "../reducer/userReducer";
 
 const InputWrapper = styled('div')({

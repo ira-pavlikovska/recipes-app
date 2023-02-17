@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {styled} from '@mui/material/styles';
 import {useAppSelector} from "../hooks/useAppSelector";
 import {RootState} from "../store";
-import Box from "@mui/material/Box";
-import {Typography} from "@mui/material";
 import Tooltip from '@mui/material/Tooltip';
 import {InputAdornment} from "@mui/material";
 import IconButton from '@mui/material/IconButton';
@@ -41,10 +39,10 @@ const SearchInput = styled(TextField)`
     }
   }
 `
+const SearchIcon = styled(SearchOutlined)({
+    color: '#8490a3'
+});
 
-const SearchIcon = styled(SearchOutlined)`
-  color: #8490a3;
-`
 
 export default function Header() {
     let navigate = useNavigate();
@@ -106,9 +104,7 @@ export default function Header() {
     </Tooltip>
 
 </span>
-
             </div>
-
             <Menu
                 anchorEl={anchorEl}
                 id="account-menu"

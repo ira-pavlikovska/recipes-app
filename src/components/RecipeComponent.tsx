@@ -4,9 +4,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import React from "react";
 import AddRecipeModal from "./AddRecipeModal";
-import {useAppSelector} from "../hooks/useAppSelector";
-import {RootState} from "../store";
-
 
 type Props = {
     recipe: RecipeType,
