@@ -34,7 +34,7 @@ function RecipesPage() {
             .catch((error: any) => console.log(JSON.stringify(error)));
     }, [keyword]);
 
-    console.log(`recipes ${JSON.stringify(recipes)}`)
+    // console.log(`recipes ${JSON.stringify(recipes)}`)
 
     const handleAddRecipe = () => {
         setOpenModal(true);

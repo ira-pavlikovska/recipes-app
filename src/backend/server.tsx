@@ -46,7 +46,6 @@ app.get('/recipes', function (req, res) {
     // TODO: use userId to load recipes
     const {userId, keyword} = req.query
     // console.log(`userId = ${userId}`)
-    // console.log(`keyword = ${keyword}`)
     const filePath = path.join(__dirname, 'recipes.json');
     try {
         const data = fs.readFileSync(filePath, 'utf8');
@@ -75,20 +74,11 @@ app.get('/recipes', function (req, res) {
 
             return false
         });
-
-
         res.send( filteredByKeyword)
-            // .filter((r) =>
-            //         r.recipeName.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ||
-            //         r.instructions.map(i => i.toLowerCase().indexOf(keyword.toLowerCase()) > -1)
-            // ))
-        // console.log(data);
     } catch (err) {
         console.error(err);
     }
 
-    // const userId = 1
-    // res.send(recipes.filter(r => r.userId === parseInt(userId, 10)))
 })
 
 app.put('/recipe', function (req, res) {

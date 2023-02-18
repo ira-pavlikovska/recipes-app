@@ -14,8 +14,6 @@ import Logout from '@mui/icons-material/Logout';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {useNavigate} from "react-router-dom";
-import {Ingredient} from "../models";
-import IngredientComponent from "./IngredientComponent";
 
 type Props = {
     keyword: string,
@@ -50,10 +48,8 @@ const SearchIcon = styled(SearchOutlined)({
     color: '#8490a3'
 });
 
-
 const Header =({keyword, setKeyword}: Props) => {
     let navigate = useNavigate();
-    // const [keyword, setKeyword] = useState<string>('');
     const {user} = useAppSelector((state: RootState) => state.userReducer);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -110,7 +106,6 @@ const Header =({keyword, setKeyword}: Props) => {
             <AccountCircleIcon fontSize="large"/>
         </IconButton>
     </Tooltip>
-
 </span>
             </div>
             <Menu
@@ -166,7 +161,6 @@ const Header =({keyword, setKeyword}: Props) => {
                     </ListItemIcon>
                     Account info
                 </MenuItem>
-
             </Menu>
         </React.Fragment>
     );
