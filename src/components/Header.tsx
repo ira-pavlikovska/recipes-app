@@ -14,6 +14,13 @@ import Logout from '@mui/icons-material/Logout';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {useNavigate} from "react-router-dom";
+import {Ingredient} from "../models";
+import IngredientComponent from "./IngredientComponent";
+
+type Props = {
+    keyword: string,
+    setKeyword: (keyword: string) => void
+}
 
 const SearchInput = styled(TextField)`
   width: 580px;
@@ -44,9 +51,9 @@ const SearchIcon = styled(SearchOutlined)({
 });
 
 
-export default function Header() {
+const Header =({keyword, setKeyword}: Props) => {
     let navigate = useNavigate();
-    const [keyword, setKeyword] = useState<string>('');
+    // const [keyword, setKeyword] = useState<string>('');
     const {user} = useAppSelector((state: RootState) => state.userReducer);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -78,19 +85,20 @@ export default function Header() {
                             's'} Recipes book
                         </h2>
                     </span>
-                <span style={{flex: 6, display: 'flex', justifyContent: 'center', marginTop: 15}}> <SearchInput
-                    placeholder="Search for recipe"
-                    variant="outlined"
-                    onChange={(e) => setKeyword(e.target.value)}
-                    value={keyword}
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position='start'>
-                                <SearchIcon/>
-                            </InputAdornment>
-                        )
-                    }}
-                />
+                <span style={{flex: 6, display: 'flex', justifyContent: 'center', marginTop: 15}}>
+                    <SearchInput
+                        placeholder="Search for recipe"
+                        variant="outlined"
+                        onChange={(e) => setKeyword(e.target.value)}
+                        value={keyword}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <SearchIcon/>
+                                </InputAdornment>
+                            )
+                        }}
+                    />
 </span>
                 <span style={{flex: 1, display: 'flex', justifyContent: 'center'}}>
     <Tooltip title="Account settings">
@@ -163,6 +171,6 @@ export default function Header() {
         </React.Fragment>
     );
 }
-
+export default Header;
 
 

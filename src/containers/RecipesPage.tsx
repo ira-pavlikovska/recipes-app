@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {styled} from '@mui/material/styles';
 import {useAppSelector} from '../hooks/useAppSelector';
 import {RootState} from "../store";
@@ -17,7 +17,7 @@ import {useAppDispatch} from "../hooks/useAppDispatch";
 import AddRecipeModal from '../components/AddRecipeModal';
 
 function RecipesPage() {
-
+    const [keyword, setKeyword] = useState<string>('');
     const [openModal, setOpenModal] = React.useState(false);
     let navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -29,10 +29,10 @@ function RecipesPage() {
     }
 
     useEffect(() => {
-        getRecipes(userId)
+        getRecipes(userId, keyword)
             .then((response: any) => dispatch(setRecipes(response.data)))
             .catch((error: any) => console.log(JSON.stringify(error)));
-    }, []);
+    }, [keyword]);
 
     console.log(`recipes ${JSON.stringify(recipes)}`)
 
@@ -74,7 +74,7 @@ function RecipesPage() {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <div style={{alignItems: 'center'}}><Header/></div>
+                    <div style={{alignItems: 'center'}}><Header keyword={keyword} setKeyword={setKeyword}/></div>
                 </Grid>
                 <Grid item xs={12}>
                     <StyledPaper elevation={3}>

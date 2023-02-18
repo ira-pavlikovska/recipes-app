@@ -44,13 +44,44 @@ app.post('/login', function (req, res) {
 
 app.get('/recipes', function (req, res) {
     // TODO: use userId to load recipes
-    const {userId} = req.query
-    console.log(`userId = ${userId}`)
+    const {userId, keyword} = req.query
+    // console.log(`userId = ${userId}`)
+    // console.log(`keyword = ${keyword}`)
     const filePath = path.join(__dirname, 'recipes.json');
     try {
         const data = fs.readFileSync(filePath, 'utf8');
         const recipes = JSON.parse(data)
-        res.send(recipes.filter(r => r.userId === parseInt(userId, 10)))
+        let filteredByUserId = recipes.filter(r => r.userId === parseInt(userId, 10));
+
+        let filteredByKeyword = filteredByUserId.filter(r => {
+            const kw = keyword.toLowerCase();
+            if (r.recipeName.toLowerCase().includes(kw)) {
+                return true
+            }
+
+            for(let i = 0; i < r.instructions.length; i++) {
+                let ins = r.instructions[i]
+                if (ins.toLowerCase().includes(kw)) {
+                    return true
+                }
+            }
+
+            for(let i = 0; i < r.ingredients.length; i++) {
+                let ing = r.ingredients[i]
+                if (ing.name.toLowerCase().indexOf(kw) > -1) {
+                    return true
+                }
+            }
+
+            return false
+        });
+
+
+        res.send( filteredByKeyword)
+            // .filter((r) =>
+            //         r.recipeName.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ||
+            //         r.instructions.map(i => i.toLowerCase().indexOf(keyword.toLowerCase()) > -1)
+            // ))
         // console.log(data);
     } catch (err) {
         console.error(err);
