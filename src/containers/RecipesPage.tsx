@@ -51,13 +51,11 @@ function RecipesPage() {
                 } else {
                     console.log('Recipe did not delete from Server')
                 }
-
             })
             .catch((error: any) => console.log(JSON.stringify(error)))
 
         console.log('delete')
     }
-
 
     const StyledPaper = styled(Paper)(({theme}) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -66,7 +64,6 @@ function RecipesPage() {
         textAlign: 'center',
         color: theme.palette.text.secondary,
     }));
-
 
     const haveRecipes = recipes.length > 0;
 
@@ -111,6 +108,5 @@ function RecipesPage() {
         </Box>
     );
 }
-
 export default RecipesPage;
 

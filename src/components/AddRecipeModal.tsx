@@ -36,8 +36,8 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
     const [ingredientObjArr, setIngredientObjArr] = useState<Ingredient[]>(recipe ? recipe.ingredients : []);
     const [instructionsArr, setInstructionsArr] = useState<string[]>(recipe ? recipe.instructions : []);
     const dispatch = useAppDispatch();
-    const onSave = () => {
 
+    const onSave = () => {
         if(recipe && recipe.recipeId){
             updateRecipe({
                 recipeId: recipe.recipeId,
@@ -52,7 +52,6 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                     handleCloseModal()
                 })
                 .catch(err => console.log(err))
-
         }else{
             addRecipe({
                 recipeId: '',
@@ -67,9 +66,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                     handleCloseModal()
                 })
                 .catch(err => console.log(err))
-
         }
-
            }
 
     const style = {
@@ -110,7 +107,6 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
     const handleDeleteInstructionStep = (step: string) => {
         setInstructionsArr(instructionsArr.filter((stepItem: string) => stepItem !== step))
     }
-
 
     const handleAddNewInstruction = (step: string) => {
         if (step) {
