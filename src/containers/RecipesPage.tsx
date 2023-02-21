@@ -62,7 +62,7 @@ function RecipesPage() {
         ...theme.typography.body2,
         padding: theme.spacing(1),
         textAlign: 'center',
-        color: theme.palette.text.secondary,
+        color: theme.palette.text.secondary
     }));
 
     const haveRecipes = recipes.length > 0;
@@ -74,7 +74,7 @@ function RecipesPage() {
                     <div style={{alignItems: 'center'}}><Header keyword={keyword} setKeyword={setKeyword}/></div>
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledPaper elevation={3}>
+                    <StyledPaper elevation={3} style={{height: !haveRecipes? 300: ''}}>
                         <Grid item xs={12} style={{marginTop: 30}}>
                             <span style={{
                                 fontSize: 22,
@@ -93,12 +93,12 @@ function RecipesPage() {
                         </Grid>
                         <Grid item xs={12}>
                             {
-                                haveRecipes && (
+                                haveRecipes ?(
                                     recipes.map((recipe: RecipeType) => (
                                         <div><RecipeComponent recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}/>
                                         </div>
                                     ))
-                                )
+                                ) : `0 results for ${keyword}`
                             }
                             <AddRecipeModal handleCloseModal={handleCloseModal} open={openModal}/>
                         </Grid>

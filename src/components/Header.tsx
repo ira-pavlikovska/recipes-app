@@ -83,7 +83,7 @@ const Header =({keyword, setKeyword}: Props) => {
                     </span>
                 <span style={{flex: 6, display: 'flex', justifyContent: 'center', marginTop: 15}}>
                     <SearchInput
-                        placeholder="Search for recipe"
+                        placeholder="Search meals"
                         variant="outlined"
                         onChange={(e) => setKeyword(e.target.value)}
                         value={keyword}

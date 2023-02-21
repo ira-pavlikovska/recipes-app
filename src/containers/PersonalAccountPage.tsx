@@ -113,7 +113,6 @@ function PersonalAccountPage() {
                                             <ListItemText>{user.username}</ListItemText>
                                         </ListItem>
                                     </>
-
                                     :
                                     <>
                                         <ListItem style={{paddingTop: 20, width: 500}}>
