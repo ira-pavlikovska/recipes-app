@@ -532,7 +532,63 @@
       "Once the skillet is hot, add oil and swirl to coat the bottom.\n2 tsp extra virgin olive oil",
       "Add mushrooms, garlic, and thyme to the skillet. Cook, stirring occasionally, until mushrooms are tender, 3-4 minutes.",
       "Meanwhile, crack eggs into a medium bowl and season with salt and pepper; whisk to combine.",
-      "Push mushrooms to the edge of the skillet and add tomatoes, cut-side down. Cook, undisturbed, until tomatoes are browned, about 3 minutes. Transfer mushrooms and tomatoes to a plate and cover with aluminum foil.",
+      "Push mushrooms to the edge of the skillet and add tomatoes, cut-side down. Cook, undisturbed, until tomatoes are browned, about 3 minutes. Transfer mushrooms and tomatoes to a plate and cover with aluminum foil."
+    ]
+  },
+  {
+    "recipeId": 43,
+    "userId": 1,
+    "recipeName": "Avocado White Bean Toast with Cheddar",
+    "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/868/presentation_645e945d-e4f7-422d-8ea5-6c3d9c6c0e72.jpeg",
+    "ingredients": [
+      {
+        "name": "avocado",
+        "quantity": "1"
+      },
+      {
+        "name": "cannellini (white kidney) beans",
+        "quantity": "½ (15 oz) can"
+      },
+      {
+        "name": "cheddar cheese",
+        "quantity": "⅛ (8 oz) block"
+      },
+      {
+        "name": "garlic",
+        "quantity": "1 clove"
+      },
+      {
+        "name": "lemon",
+        "quantity": "½"
+      },
+      {
+        "name": "tomato",
+        "quantity": "1"
+      },
+      {
+        "name": "whole grain bread",
+        "quantity": "2 slices"
+      },
+      {
+        "name": "black pepper",
+        "quantity": "⅛ tsp"
+      },
+      {
+        "name": "salt, thyme",
+        "quantity": "¼ tsp"
+      }
+    ],
+    "instructions": [
+      "Drain and rinse beans in a colander; set aside to drain further.\n½ (15 oz) can cannellini (white kidney) beans",
+      "Wash and dry the fresh produce.\n1 avocado\n½ lemon\n1 tomato",
+      "Halve and pit the avocado. Cut into chunks while still in the skin, then scoop out into a medium bowl.",
+      "Juice lemon into the bowl with the avocado.",
+      "Peel and mince garlic; add to the same bowl.",
+      "Add beans and spices to the bowl with the avocado; mash until well combined but still slightly chunky.",
+      "Medium dice tomato.",
+      "Slice cheese.",
+      "Toast bread if desired.",
+      "To serve, divide toast between plates, top with cheese, avocado-bean mix, and tomatoes. Enjoy!"
     ]
   }
 ]
