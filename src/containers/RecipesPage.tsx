@@ -15,6 +15,7 @@ import {useNavigate} from "react-router-dom";
 import {setRecipes, updateCurrentRecipe, deleteCurrentRecipe} from "../reducer/recipesReducer";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 import AddRecipeModal from '../components/AddRecipeModal';
+import {MyRecipes} from "./RecipesPage.styles";
 
 function RecipesPage() {
     const [keyword, setKeyword] = useState<string>('');
@@ -76,20 +77,14 @@ function RecipesPage() {
                 <Grid item xs={12}>
                     <StyledPaper elevation={3} style={{height: !haveRecipes? 300: ''}}>
                         <Grid item xs={12} style={{marginTop: 30}}>
-                            <span style={{
-                                fontSize: 22,
-                                fontWeight: 'bold',
-                                float: 'left',
-                                marginLeft: 30
-                            }}>My Recipes</span>
-                            <span><Button
+                            <MyRecipes>My Recipes</MyRecipes>
+                            <Button
                                 variant="outlined"
                                 style={{float: 'right'}}
                                 onClick={handleAddRecipe}
                             >
                                 Add new Recipe
                             </Button>
-                            </span>
                         </Grid>
                         <Grid item xs={12}>
                             {
