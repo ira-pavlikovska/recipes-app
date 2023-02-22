@@ -488,5 +488,51 @@
       "Sprinkle the cheese over one side of the omelet; layer reserved tomato slices and the basil on top. Fold the omelet in half and cook until cheese is melted, about 1 minute.",
       "To serve, cut omelets in half and divide between plates; enjoy with remaining tomato slices on the side!"
     ]
+  },
+  {
+    "recipeId": 42,
+    "userId": 1,
+    "recipeName": "Scrambled Eggs with Mushrooms & Fried Tomatoes",
+    "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/1039/presentation_b2891e82-583a-4714-a126-a485a2958b75.jpeg",
+    "ingredients": [
+      {
+        "name": "cremini mushrooms",
+        "quantity": "½ lb"
+      },
+      {
+        "name": "eggs",
+        "quantity": "5"
+      },
+      {
+        "name": "garlic",
+        "quantity": "1 clove"
+      },
+      {
+        "name": "tomatoes",
+        "quantity": "2"
+      },
+      {
+        "name": "black pepper",
+        "quantity": "1 pinch"
+      },
+      {
+        "name": "extra virgin olive oil",
+        "quantity": "4 tsp"
+      },
+      {
+        "name": "salt, thyme",
+        "quantity": "1 tsp"
+      }
+    ],
+    "instructions": [
+      "Wash and dry the fresh produce.\n½ lb cremini mushrooms\n2 tomatoes",
+      "Slice mushrooms. Cut tomatoes in half.",
+      "Preheat a nonstick skillet over medium-high heat.",
+      "Peel and mince garlic.\n1 clove garlic",
+      "Once the skillet is hot, add oil and swirl to coat the bottom.\n2 tsp extra virgin olive oil",
+      "Add mushrooms, garlic, and thyme to the skillet. Cook, stirring occasionally, until mushrooms are tender, 3-4 minutes.",
+      "Meanwhile, crack eggs into a medium bowl and season with salt and pepper; whisk to combine.",
+      "Push mushrooms to the edge of the skillet and add tomatoes, cut-side down. Cook, undisturbed, until tomatoes are browned, about 3 minutes. Transfer mushrooms and tomatoes to a plate and cover with aluminum foil.",
+    ]
   }
 ]
