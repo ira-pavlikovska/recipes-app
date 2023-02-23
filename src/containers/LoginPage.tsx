@@ -9,11 +9,8 @@ import {useAppDispatch} from '../hooks/useAppDispatch'
 import { setUser } from "../reducer/userReducer";
 import {ChangeEvent, useState} from "react";
 import {login} from "../api"
+import {InputWrapper, InputWrapperUsername, PaperWrapper} from "./LoginPage.styles";
 
-
-const InputWrapper = styled('div')({
-    padding: 20,
-});
 
 const StyledPaper = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -74,18 +71,12 @@ function LoginPage() {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} style={{paddingTop: 0}}>
-                    <Paper elevation={0} style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        backgroundColor: '#ebeef2',
-                        alignItems: 'center',
-                        minHeight: '100vh'
-                    }}>
+                    <PaperWrapper elevation={0}>
                         <StyledPaper elevation={3}>
                             <InputWrapper>
                                 <h2>Login</h2>
                             </InputWrapper>
-                            <InputWrapper style={{paddingTop: 50}}>
+                            <InputWrapperUsername>
                                 <TextField
                                     required
                                     tabIndex={1}
@@ -93,7 +84,7 @@ function LoginPage() {
                                     value={username}
                                     onChange={usernameHandler}
                                 />
-                            </InputWrapper>
+                            </InputWrapperUsername>
                             <InputWrapper>
                                 <TextField
                                     required
@@ -118,7 +109,7 @@ function LoginPage() {
                                 )}
                             </InputWrapper>
                         </StyledPaper>
-                    </Paper>
+                    </PaperWrapper>
                 </Grid>
             </Grid>
         </Box>
