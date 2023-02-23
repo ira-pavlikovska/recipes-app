@@ -10,12 +10,11 @@ import RecipeComponent from "../components/RecipeComponent";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
 import {setRecipes, updateCurrentRecipe, deleteCurrentRecipe} from "../reducer/recipesReducer";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 import AddRecipeModal from '../components/AddRecipeModal';
-import {MyRecipes} from "./RecipesPage.styles";
+import {MyRecipes, StyledHeader, StyledButton, StyledContainer} from "./RecipesPage.styles";
 
 function RecipesPage() {
     const [keyword, setKeyword] = useState<string>('');
@@ -63,7 +62,8 @@ function RecipesPage() {
         ...theme.typography.body2,
         padding: theme.spacing(1),
         textAlign: 'center',
-        color: theme.palette.text.secondary
+        color: theme.palette.text.secondary,
+        height: !haveRecipes ? 300 : ''
     }));
 
     const haveRecipes = recipes.length > 0;
@@ -72,23 +72,24 @@ function RecipesPage() {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <div style={{alignItems: 'center'}}><Header keyword={keyword} setKeyword={setKeyword}/></div>
+                    <StyledHeader><Header keyword={keyword} setKeyword={setKeyword}/></StyledHeader>
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledPaper elevation={3} style={{height: !haveRecipes? 300: ''}}>
-                        <Grid item xs={12} style={{marginTop: 30}}>
-                            <MyRecipes>My Recipes</MyRecipes>
-                            <Button
-                                variant="outlined"
-                                style={{float: 'right'}}
-                                onClick={handleAddRecipe}
-                            >
-                                Add new Recipe
-                            </Button>
+                    <StyledPaper elevation={3}>
+                        <Grid item xs={12}>
+                            <StyledContainer>
+                                <MyRecipes>My Recipes</MyRecipes>
+                                <StyledButton
+                                    variant="outlined"
+                                    onClick={handleAddRecipe}
+                                >
+                                    Add new Recipe
+                                </StyledButton>
+                            </StyledContainer>
                         </Grid>
                         <Grid item xs={12}>
                             {
-                                haveRecipes ?(
+                                haveRecipes ? (
                                     recipes.map((recipe: RecipeType) => (
                                         <div><RecipeComponent recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}/>
                                         </div>
@@ -103,5 +104,6 @@ function RecipesPage() {
         </Box>
     );
 }
+
 export default RecipesPage;
 
