@@ -6,7 +6,7 @@ export const MyRecipes = styled.span`
   font-size: 22px;
   font-weight: bold;
   float: left;
-  margin-left: 30px;
+  margin-left: 50px;
 `
 export const StyledHeader = styled.div `
   align-items: center
@@ -18,18 +18,24 @@ export const StyledContainer = styled.div`
   margin-top: 30px;
   align-items: center;
   justify-content: center;
+  height: 50px;
 `
 export const ViewLabel = styled.span`
   font-size: 14px;
-  margin-left: 30px;
+  margin-left: 50px;
+  margin-top: 9px;
   float: left;
 `
 export const GalleryIcon = styled(CollectionsIcon)`
   display: inline;
+  margin-top: 7px;
   margin-left: 20px;
+  float: left;
 `
 export const ListIcon = styled(ViewListIcon)`
   display: inline;
   margin-left: 20px;
+  margin-top: 7px;
+  float: left;
 `
 
