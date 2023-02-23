@@ -1,11 +1,9 @@
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
 import ListItemText from '@mui/material/ListItemText';
 import Button from "@mui/material/Button";
-import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import Grid from '@mui/material/Grid';
 import {useAppSelector} from "../hooks/useAppSelector";
@@ -15,10 +13,7 @@ import {useAppDispatch} from "../hooks/useAppDispatch";
 import {UserType} from "../models";
 import {updateUserInfo} from "../api"
 import {updateCurrentUserInfo} from "../reducer/userReducer";
-
-const InputWrapper = styled('div')({
-    padding: 20,
-});
+import {ListWrapper, LabelStyled, IconButtonStyled, ListItemStyled, ListItemEditStyled, ListItemButtons  } from "./PersonalAccountPage.styles";
 
 const StyledList = styled(List)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -33,7 +28,6 @@ const StyledList = styled(List)(({theme}) => ({
     alignItems: 'center'
 
 }));
-
 
 function PersonalAccountPage() {
     const dispatch = useAppDispatch();
@@ -67,55 +61,44 @@ function PersonalAccountPage() {
         setShowEdit(false);
     }
 
-
     return (
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} style={{paddingTop: 0}}>
-
-                    <List style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        backgroundColor: '#ebeef2',
-                        alignItems: 'center',
-                        minHeight: '100vh'
-                    }}>
-
+                    <ListWrapper>
                         <StyledList>
-                            <div style={{fontSize: 25, display: 'inline'}}>Personal info</div>
-                            <IconButton
-                                style={{display: 'inline', marginLeft: 20}}
+                            <LabelStyled>Personal info</LabelStyled>
+                            <IconButtonStyled
                                 onClick={handleEdit}>
                                 <EditIcon/>
-                            </IconButton>
-
+                            </IconButtonStyled>
                             {
                                 (!showEdit) ?
                                     <>
-                                        <ListItem style={{paddingTop: 20}}>
+                                        <ListItemStyled>
                                             <ListItemText>First name</ListItemText>
                                             <ListItemText>{user.firstName}</ListItemText>
-                                        </ListItem>
-                                        <ListItem style={{paddingTop: 20}}>
+                                        </ListItemStyled>
+                                        <ListItemStyled>
                                             <ListItemText>Last name</ListItemText>
                                             <ListItemText>{user.lastName}</ListItemText>
-                                        </ListItem>
-                                        <ListItem style={{paddingTop: 20}}>
+                                        </ListItemStyled>
+                                        <ListItemStyled>
                                             <ListItemText>Password</ListItemText>
                                             <ListItemText>{user.password}</ListItemText>
-                                        </ListItem>
-                                        <ListItem style={{paddingTop: 20}}>
+                                        </ListItemStyled>
+                                        <ListItemStyled>
                                             <ListItemText>Email</ListItemText>
                                             <ListItemText>{user.email}</ListItemText>
-                                        </ListItem>
-                                        <ListItem style={{paddingTop: 20}}>
+                                        </ListItemStyled>
+                                        <ListItemStyled>
                                             <ListItemText>Username</ListItemText>
                                             <ListItemText>{user.username}</ListItemText>
-                                        </ListItem>
+                                        </ListItemStyled>
                                     </>
                                     :
                                     <>
-                                        <ListItem style={{paddingTop: 20, width: 500}}>
+                                        <ListItemEditStyled>
                                             <ListItemText>First name</ListItemText>
                                             <TextField
                                                 required
@@ -126,8 +109,8 @@ function PersonalAccountPage() {
                                                     setUpdatedUser({...updatedUser, firstName: e.target.value})
                                                 }}
                                             />
-                                        </ListItem>
-                                        <ListItem style={{paddingTop: 20, width: 500}}>
+                                        </ListItemEditStyled>
+                                        <ListItemEditStyled>
                                             <ListItemText>Last name</ListItemText>
                                             <TextField
                                                 required
@@ -138,8 +121,8 @@ function PersonalAccountPage() {
                                                     setUpdatedUser({...updatedUser, lastName: e.target.value})
                                                 }}
                                             />
-                                        </ListItem>
-                                        <ListItem style={{paddingTop: 20, width: 500}}>
+                                        </ListItemEditStyled>
+                                        <ListItemEditStyled>
                                             <ListItemText>Password</ListItemText>
                                             <TextField
                                                 required
@@ -150,23 +133,21 @@ function PersonalAccountPage() {
                                                     setUpdatedUser({...updatedUser, password: e.target.value})
                                                 }}
                                             />
-                                        </ListItem>
-                                        <ListItem style={{ justifyContent: 'center'}}>
+                                        </ListItemEditStyled>
+                                        <ListItemButtons>
                                             <Button
-                                                style={{marginTop: 50}}
                                                 onClick={handleSave}>
                                                 Save
                                             </Button>
                                             <Button
-                                                style={{marginTop: 50}}
                                                 onClick={handleCancel}>
                                                 Cancel
                                             </Button>
-                                        </ListItem>
+                                        </ListItemButtons>
                                     </>
                             }
                         </StyledList>
-                    </List>
+                    </ListWrapper>
                 </Grid>
             </Grid>
         </Box>
