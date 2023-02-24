@@ -49,12 +49,12 @@ const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
                         >Edit</Button>
 
                     </div>
-                    <div style={{marginTop: 30, textAlign: 'left'}}>
+                    <div style={{marginTop: 30, textAlign: 'left', color: 'rgba(0, 0, 0, 0.6)'}}>
                         <span style={{fontWeight: 'bold'}}> Ingredients:</span>{recipe.ingredients.map(ingredient => (
                         <div>{ingredient.name} - {ingredient.quantity}</div>
                     ))}
                     </div>
-                    <div style={{marginTop: 30, textAlign: 'left'}}><span
+                    <div style={{marginTop: 30, textAlign: 'left', color: 'rgba(0, 0, 0, 0.6)'}}><span
                         style={{fontWeight: 'bold'}}>Instructions:</span>{recipe.instructions.map(instruction => (
                         <div>{instruction}</div>
                     ))}</div>
