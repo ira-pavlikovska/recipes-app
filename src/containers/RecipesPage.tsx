@@ -21,7 +21,8 @@ import {
     StyledContainer,
     ViewLabel,
     GalleryIcon,
-    ListIcon
+    ListIcon,
+    StyledPaper
 } from "./RecipesPage.styles";
 
 function RecipesPage() {
@@ -65,15 +66,6 @@ function RecipesPage() {
         console.log('delete')
     }
 
-    const StyledPaper = styled(Paper)(({theme}) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        height: !haveRecipes ? 300 : ''
-    }));
-
     const haveRecipes = recipes.length > 0;
 
     return (
@@ -83,7 +75,7 @@ function RecipesPage() {
                     <StyledHeader><Header keyword={keyword} setKeyword={setKeyword}/></StyledHeader>
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledPaper elevation={3}>
+                    <StyledPaper elevation={3} style={{height: !haveRecipes ? 300 : ''}}>
                         <Grid item xs={12}>
                             <StyledContainer>
                                 <MyRecipes>My Recipes</MyRecipes>

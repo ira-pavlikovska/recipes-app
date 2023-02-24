@@ -39,12 +39,12 @@ const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
                         <div>{recipe.recipeName}</div>
                         <Button
                             variant="outlined"
-                            style={{float: 'right', marginRight: 20}}
+                            style={{float: 'right', marginRight: 20, marginTop: 20}}
                             onClick={()=> handleDeleteRecipe(recipe)}
                         >Delete</Button>
                         <Button
                             variant="outlined"
-                            style={{float: 'right', marginRight: 20}}
+                            style={{float: 'right', marginRight: 20, marginTop: 20}}
                             onClick={handleOpenModal}
                         >Edit</Button>
 
