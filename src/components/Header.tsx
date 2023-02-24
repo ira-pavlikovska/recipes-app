@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
-import {styled} from '@mui/material/styles';
 import {useAppSelector} from "../hooks/useAppSelector";
 import {RootState} from "../store";
 import Tooltip from '@mui/material/Tooltip';
 import {InputAdornment} from "@mui/material";
 import IconButton from '@mui/material/IconButton';
-import {TextField} from "@mui/material";
-import {SearchOutlined} from "@mui/icons-material";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -14,41 +11,14 @@ import Logout from '@mui/icons-material/Logout';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {useNavigate} from "react-router-dom";
+import {SearchInput, SearchIcon, StyledTitle, SearchInputWrapper, TooltipWrapper} from "./Header.styles";
 
 type Props = {
     keyword: string,
     setKeyword: (keyword: string) => void
 }
 
-const SearchInput = styled(TextField)`
-  width: 580px;
-  height: 40px;
-
-  .MuiInputBase-root {
-    border-radius: 44px;
-  }
-
-  input {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #333943;
-
-    ::placeholder {
-      opacity: 1;
-      font-style: italic;
-      font-size: 14px;
-      line-height: 20px;
-      letter-spacing: 0.15px;
-      color: #8490a3;
-    }
-  }
-`
-const SearchIcon = styled(SearchOutlined)({
-    color: '#8490a3'
-});
-
-const Header =({keyword, setKeyword}: Props) => {
+const Header = ({keyword, setKeyword}: Props) => {
     let navigate = useNavigate();
     const {user} = useAppSelector((state: RootState) => state.userReducer);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -69,19 +39,13 @@ const Header =({keyword, setKeyword}: Props) => {
     return (
         <React.Fragment>
             <div style={{display: 'flex'}}>
-                  <span style={{
-                      color: 'rgba(0, 0, 0, 0.6)',
-                      display: 'flex',
-                      alignItems: 'left',
-                      justifyContent: 'center',
-                      flex: 5
-                  }}>
-                        <h2>
-                            {user.firstName + "'" +
-                            's'} Recipes book
-                        </h2>
-                    </span>
-                <span style={{flex: 6, display: 'flex', justifyContent: 'center', marginTop: 15}}>
+                <StyledTitle>
+                    <h2>
+                        {user.firstName + "'" +
+                        's'} Recipes book
+                    </h2>
+                </StyledTitle>
+                <SearchInputWrapper>
                     <SearchInput
                         placeholder="Search meals"
                         variant="outlined"
@@ -95,18 +59,18 @@ const Header =({keyword, setKeyword}: Props) => {
                             )
                         }}
                     />
-</span>
-                <span style={{flex: 1, display: 'flex', justifyContent: 'center'}}>
-    <Tooltip title="Account settings">
-        <IconButton
-            onClick={handleClick}
-            size='small'
-            sx={{ml: 2}}
-        >
-            <AccountCircleIcon fontSize="large"/>
-        </IconButton>
-    </Tooltip>
-</span>
+                </SearchInputWrapper>
+                <TooltipWrapper>
+                    <Tooltip title="Account settings">
+                        <IconButton
+                            onClick={handleClick}
+                            size='small'
+                            sx={{ml: 2}}
+                        >
+                            <AccountCircleIcon fontSize="large"/>
+                        </IconButton>
+                    </Tooltip>
+                </TooltipWrapper>
             </div>
             <Menu
                 anchorEl={anchorEl}

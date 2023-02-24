@@ -16,8 +16,6 @@ export const StyledPaper = styled(Paper) `
   background-color: #fff;
   padding: 20px;
   text-align: center;
-  //color: #37474f;
-  
 `
 
 export const StyledButton = styled(Button)`
