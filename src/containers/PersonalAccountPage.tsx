@@ -13,21 +13,16 @@ import {useAppDispatch} from "../hooks/useAppDispatch";
 import {UserType} from "../models";
 import {updateUserInfo} from "../api"
 import {updateCurrentUserInfo} from "../reducer/userReducer";
-import {ListWrapper, LabelStyled, IconButtonStyled, ListItemStyled, ListItemEditStyled, ListItemButtons  } from "./PersonalAccountPage.styles";
+import {
+    ListWrapper,
+    LabelStyled,
+    IconButtonStyled,
+    ListItemStyled,
+    ListItemEditStyled,
+    ListItemButtons,
+    StyledList
+} from "./PersonalAccountPage.styles";
 
-const StyledList = styled(List)(({theme}) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    width: 650,
-    height: 600,
-    justifyContent: 'center',
-    display: 'block',
-    alignItems: 'center'
-
-}));
 
 function PersonalAccountPage() {
     const dispatch = useAppDispatch();

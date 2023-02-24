@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {styled} from '@mui/material/styles';
 import {useAppSelector} from '../hooks/useAppSelector';
 import {RootState} from "../store";
 import {useEffect} from "react";
@@ -7,7 +6,6 @@ import {deleteRecipe, getRecipes} from "../api";
 import {RecipeType} from "../models";
 import Header from "../components/Header";
 import RecipeComponent from "../components/RecipeComponent";
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import {useNavigate} from "react-router-dom";
