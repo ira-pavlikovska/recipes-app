@@ -6,7 +6,9 @@ import {deleteRecipe, getRecipes} from "../api";
 import {RecipeType} from "../models";
 import Header from "../components/Header";
 import RecipeComponent from "../components/RecipeComponent";
+import RecipeComponentGalleryView from "../components/RecipeComponentGalleryView";
 import Grid from '@mui/material/Grid';
+import ImageList from '@mui/material/ImageList';
 import Box from '@mui/material/Box';
 import {useNavigate} from "react-router-dom";
 import {setRecipes, updateCurrentRecipe, deleteCurrentRecipe} from "../reducer/recipesReducer";
@@ -26,6 +28,7 @@ import {
 function RecipesPage() {
     const [keyword, setKeyword] = useState<string>('');
     const [openModal, setOpenModal] = React.useState(false);
+    const [galleryMode, setGalleryMode] = React.useState(true);
     let navigate = useNavigate();
     const dispatch = useAppDispatch();
     const {user} = useAppSelector((state: RootState) => state.userReducer);
@@ -78,8 +81,12 @@ function RecipesPage() {
                             <StyledContainer>
                                 <MyRecipes>My Recipes</MyRecipes>
                                 <ViewLabel>View</ViewLabel>
-                                <GalleryIcon></GalleryIcon>
-                                <ListIcon></ListIcon>
+                                <GalleryIcon
+                                    onClick={() => setGalleryMode(true)}
+                                />
+                                <ListIcon
+                                    onClick={() => setGalleryMode(false)}
+                                />
                                 <StyledButton
                                     variant="outlined"
                                     onClick={handleAddRecipe}
@@ -90,12 +97,23 @@ function RecipesPage() {
                         </Grid>
                         <Grid item xs={12}>
                             {
-                                haveRecipes ? (
-                                    recipes.map((recipe: RecipeType) => (
-                                        <div><RecipeComponent recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}/>
+                                haveRecipes && galleryMode ? (
+                                        <div>
+                                            <RecipeComponentGalleryView recipes={recipes}/>
                                         </div>
-                                    ))
-                                ) : `0 results for ${keyword}`
+                                    ) :
+                                    (
+                                        recipes.map((recipe: RecipeType) => (
+                                            <div>
+                                                <RecipeComponent recipe={recipe}
+                                                                 handleDeleteRecipe={handleDeleteRecipe}/>
+                                            </div>
+                                        ))
+
+                                    )
+                            }
+                            {
+                                !haveRecipes ? `0 results for ${keyword}` : ''
                             }
                             <AddRecipeModal handleCloseModal={handleCloseModal} open={openModal}/>
                         </Grid>
