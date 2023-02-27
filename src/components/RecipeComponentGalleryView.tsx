@@ -15,21 +15,25 @@ export default function RecipeComponentGalleryView({recipes}: Props) {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                        <ImageList sx={{ width: 1405, height: 600 }}  cols={3}  >
+                        <ImageList  cols={4} >
                             {
                                 recipes.map((recipe:RecipeType ) =>
                                     (
                                         <ImageListItem key={recipe.imageUrl}>
                                             <img
-                                                src={`${recipe.imageUrl}?w=465&fit=crop&auto=format`}
-                                                srcSet={`${recipe.imageUrl}?w=465&fit=crop&auto=format&dpr=2 2x`}
+                                                src={`${recipe.imageUrl}?w=250&fit=crop&auto=format`}
+                                                style={{width: 350, height: 350}}
+                                                srcSet={`${recipe.imageUrl}?w=250&fit=crop&auto=format&dpr=2 2x`}
                                                 alt={recipe.recipeName}
                                                 loading="lazy"
+                                                onClick={()=> console.log(' go to recipe component')}
                                             />
-                                            <ImageListItemBar
-                                                title={recipe.recipeName}
-                                                position="below"
-                                            />
+                                            <div style={{width: 350, height: 50}}>
+                                                <ImageListItemBar
+                                                    title={recipe.recipeName}
+                                                    position="below"
+                                                />
+                                            </div>
                                         </ImageListItem>
                                     ))
                             }
