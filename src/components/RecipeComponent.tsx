@@ -6,8 +6,8 @@ import React from "react";
 import AddRecipeModal from "./AddRecipeModal";
 
 type Props = {
-    recipe: RecipeType,
-    handleDeleteRecipe: (recipe: RecipeType) => void
+    recipe?: RecipeType,
+    handleDeleteRecipe?: (recipe: RecipeType) => void
 }
 
 
@@ -15,7 +15,7 @@ const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
 
     const [openModal, setOpenModal] = React.useState(false);
 
-
+     console.log(recipe)
     const handleOpenModal = () => {
         setOpenModal(true);
     }
@@ -24,8 +24,11 @@ const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
         setOpenModal(false);
     }
 
-    return (
+    if (!recipe) {
+        return <div></div>
+    }
 
+    return (
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
@@ -37,11 +40,13 @@ const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
                 <Grid item xs={12} md={8}>
                     <div style={{marginTop: 30, color: '#1976d2', fontSize: 20}}>
                         <div>{recipe.recipeName}</div>
-                        <Button
-                            variant="outlined"
-                            style={{float: 'right', marginRight: 20, marginTop: 20}}
-                            onClick={()=> handleDeleteRecipe(recipe)}
-                        >Delete</Button>
+                        {handleDeleteRecipe && (
+                            <Button
+                                variant="outlined"
+                                style={{float: 'right', marginRight: 20, marginTop: 20}}
+                                onClick={()=> handleDeleteRecipe(recipe)}
+                            >Delete</Button>
+                        )}
                         <Button
                             variant="outlined"
                             style={{float: 'right', marginRight: 20, marginTop: 20}}

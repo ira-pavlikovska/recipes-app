@@ -5,12 +5,14 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import {RecipeType} from "../models";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import {useNavigate} from "react-router-dom";
 
 type Props = {
     recipes: RecipeType[],
 }
 
 export default function RecipeComponentGalleryView({recipes}: Props) {
+    let navigate = useNavigate();
     return (
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
@@ -26,9 +28,12 @@ export default function RecipeComponentGalleryView({recipes}: Props) {
                                                 srcSet={`${recipe.imageUrl}?w=250&fit=crop&auto=format&dpr=2 2x`}
                                                 alt={recipe.recipeName}
                                                 loading="lazy"
-                                                onClick={()=> console.log(' go to recipe component')}
+                                                onClick={()=> {
+                                                    console.log(' go to recipe component')
+                                                    navigate(`/recipe/id=${recipe.recipeId}`)
+                                                }}
                                             />
-                                            <div style={{width: 350, height: 50}}>
+                                            <div style={{width: 300, height: 70}}>
                                                 <ImageListItemBar
                                                     title={recipe.recipeName}
                                                     position="below"

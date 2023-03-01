@@ -1,6 +1,6 @@
 [
   {
-    "recipeId": 76,
+    "recipeId": "76",
     "userId": 1,
     "recipeName": "Creamy  Tuscan Shrimp with Bacon, Tomatoes, Spinach & Zucchini Noodles",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/1768/presentation_2012744c-2133-48f8-9e8c-2a32334adfb6.jpeg",
@@ -77,7 +77,7 @@
     ]
   },
   {
-    "recipeId": 34,
+    "recipeId": "34",
     "userId": 1,
     "recipeName": "Spinach & Artichoke Dip\" Gnocchi Bake with Cauliflower",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/2484/presentation_64fd0ac2-bb52-4bf0-9b2a-62cd23791238.jpeg",
@@ -132,7 +132,7 @@
     ]
   },
   {
-    "recipeId": 35,
+    "recipeId": "35",
     "userId": 2,
     "recipeName": "Caprese Salad with Fresh Mozzarella, Tomatoes, Basil & Balsamic",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/2552/presentation_9affd8df-a087-498d-932b-1d054bfdaa24.jpeg",
@@ -175,7 +175,7 @@
     ]
   },
   {
-    "recipeId": 36,
+    "recipeId": "36",
     "userId": 1,
     "recipeName": "Mini Cheese Quesadillas with Homemade Pico de Gallo",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/2538/presentation_33b23f67-d226-4f28-a5ac-feee1777b96a.jpeg",
@@ -235,7 +235,7 @@
     ]
   },
   {
-    "recipeId": 37,
+    "recipeId": "37",
     "userId": 1,
     "recipeName": "Sunrise Omelet with Feta & Dill",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/1024/presentation_f63634f6-667b-4524-bad5-deae6d4bf6d1.jpeg",
@@ -281,7 +281,7 @@
     ]
   },
   {
-    "recipeId": 38,
+    "recipeId": "38",
     "userId": 1,
     "recipeName": "Spaghetti with Shrimp, Grape Tomatoes, Broccoli, Peas & Basil Pesto",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/2514/presentation_11e49964-520c-43fb-bea7-80049d46bf7c.jpeg",
@@ -329,7 +329,7 @@
     ]
   },
   {
-    "recipeId": 39,
+    "recipeId": "39",
     "userId": 2,
     "recipeName": "Sun-Dried Tomato Pesto Grilled Cheese with Veggie Sticks & Ranch",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/2181/presentation_b29dda94-64b7-451c-9c9f-c73aae2e02d7.jpeg",
@@ -381,7 +381,7 @@
     ]
   },
   {
-    "recipeId": 40,
+    "recipeId": "40",
     "userId": 1,
     "recipeName": "Fettuccine Alfredo with Asparagus",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/224/presentation_efff3669-42b3-4af3-bae9-75eeb7e1b8d8.jpg",
@@ -443,7 +443,7 @@
     ]
   },
   {
-    "recipeId": 41,
+    "recipeId": "41",
     "userId": 1,
     "recipeName": "Mozzarella, Tomato & Basil Omelet",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/1016/presentation_bc72505c-d025-4745-9afc-f8ccf4214a0b.jpeg",
@@ -490,7 +490,7 @@
     ]
   },
   {
-    "recipeId": 42,
+    "recipeId": "42",
     "userId": 1,
     "recipeName": "Scrambled Eggs with Mushrooms & Fried Tomatoes",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/1039/presentation_b2891e82-583a-4714-a126-a485a2958b75.jpeg",
@@ -536,7 +536,7 @@
     ]
   },
   {
-    "recipeId": 43,
+    "recipeId": "43",
     "userId": 1,
     "recipeName": "Avocado White Bean Toast with Cheddar",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/868/presentation_645e945d-e4f7-422d-8ea5-6c3d9c6c0e72.jpeg",

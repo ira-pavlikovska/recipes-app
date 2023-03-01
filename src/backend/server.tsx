@@ -133,6 +133,22 @@ app.delete('/recipe/:id', function (req, res) {
     res.send('ok')
 })
 
+app.get('/recipe', function (req, res) {
+    const {id} = req.query
+     console.log(`id = ${id}`)
+    const filePath = path.join(__dirname, 'recipes.json');
+    try {
+        let data = fs.readFileSync(filePath, 'utf8');
+        let arr = JSON.parse(data)
+        let filteredById = arr.filter(item => item.recipeId === id)[0]
+        console.log(`filteredById = ${filteredById}`)
+        res.send( filteredById)
+    } catch (err) {
+        console.error(err);
+    }
+
+})
+
 //update first name
 app.patch('/user', function (req, res) {
     const filePath = path.join(__dirname, 'users.json');

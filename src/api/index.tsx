@@ -29,3 +29,6 @@ export function deleteRecipe(recipeId: string) {
 export function updateUserInfo(user: UserType) {
     return axios.patch(BASE_URL + 'user', user )
 }
+export function getRecipe(recipeId: string) {
+    return axios.get(BASE_URL + `recipe?${recipeId}` )
+}
