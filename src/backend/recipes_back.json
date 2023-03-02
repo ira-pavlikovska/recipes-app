@@ -1,6 +1,6 @@
 [
   {
-    "recipeId": 76,
+    "recipeId": "76",
     "userId": 1,
     "recipeName": "Creamy  Tuscan Shrimp with Bacon, Tomatoes, Spinach & Zucchini Noodles",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/1768/presentation_2012744c-2133-48f8-9e8c-2a32334adfb6.jpeg",
@@ -77,7 +77,7 @@
     ]
   },
   {
-    "recipeId": 34,
+    "recipeId": "34",
     "userId": 1,
     "recipeName": "Spinach & Artichoke Dip\" Gnocchi Bake with Cauliflower",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/2484/presentation_64fd0ac2-bb52-4bf0-9b2a-62cd23791238.jpeg",
@@ -132,7 +132,7 @@
     ]
   },
   {
-    "recipeId": 35,
+    "recipeId": "35",
     "userId": 2,
     "recipeName": "Caprese Salad with Fresh Mozzarella, Tomatoes, Basil & Balsamic",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=2048/uploads/recipe/thumbnail/2552/presentation_9affd8df-a087-498d-932b-1d054bfdaa24.jpeg",
@@ -175,7 +175,7 @@
     ]
   },
   {
-    "recipeId": 36,
+    "recipeId": "36",
     "userId": 1,
     "recipeName": "Mini Cheese Quesadillas with Homemade Pico de Gallo",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/2538/presentation_33b23f67-d226-4f28-a5ac-feee1777b96a.jpeg",
@@ -235,7 +235,7 @@
     ]
   },
   {
-    "recipeId": 37,
+    "recipeId": "37",
     "userId": 1,
     "recipeName": "Sunrise Omelet with Feta & Dill",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/1024/presentation_f63634f6-667b-4524-bad5-deae6d4bf6d1.jpeg",
@@ -281,7 +281,7 @@
     ]
   },
   {
-    "recipeId": 38,
+    "recipeId": "38",
     "userId": 1,
     "recipeName": "Spaghetti with Shrimp, Grape Tomatoes, Broccoli, Peas & Basil Pesto",
     "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/2514/presentation_11e49964-520c-43fb-bea7-80049d46bf7c.jpeg",
@@ -326,6 +326,269 @@
       "When the pasta is almost done, add shrimp, broccoli, and peas to the pot. Continue to cook, stirring occasionally, until pasta reaches desired firmness, shrimp are cooked through, and veggies are tender, 2-3 minutes more.\n½ (18 oz) bag broccoli florets\n½ cup frozen peas",
       "When the pasta, shrimp, and veggies are done, drain in a clean colander and return to the pot. Add tomatoes and pesto, then toss to combine.\n¼ cup basil pesto",
       "To serve, divide pasta between plates or bowls and top with Parmesan. Enjoy! "
+    ]
+  },
+  {
+    "recipeId": "39",
+    "userId": 2,
+    "recipeName": "Sun-Dried Tomato Pesto Grilled Cheese with Veggie Sticks & Ranch",
+    "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/2181/presentation_b29dda94-64b7-451c-9c9f-c73aae2e02d7.jpeg",
+    "ingredients": [
+      {
+        "name": "carrots",
+        "quantity": "2 medium"
+      },
+      {
+        "name": "celery",
+        "quantity": "3 sticks"
+      },
+      {
+        "name": "mozzarella cheese",
+        "quantity": "½ (8 oz) block"
+      },
+      {
+        "name": "ranch dressing",
+        "quantity": "¼ cup"
+      },
+      {
+        "name": "sun-dried tomato pesto",
+        "quantity": "¼ cup"
+      },
+      {
+        "name": "tomato",
+        "quantity": "1"
+      },
+      {
+        "name": "whole grain bread",
+        "quantity": "4 slices"
+      },
+      {
+        "name": "butter, unsalted",
+        "quantity": "4 tsp"
+      }
+    ],
+    "instructions": [
+      "Wash and dry the fresh produce.\n2 medium carrots\n3 sticks celery\n1 tomato ",
+      "Peel, trim, and quarter carrots lengthwise, then cut crosswise into 3-inch long pieces; transfer to a plate.",
+      "Trim and halve celery lengthwise, then cut crosswise into 3-inch long pieces; add to the plate with the carrot and set aside.",
+      "Slice tomato crosswise into rounds.",
+      "Thinly slice mozzarella.\n½ (8 oz) block mozzarella cheese",
+      "Preheat a skillet over medium-high heat.",
+      "While the skillet heats up, place the bread slices on a flat surface. Evenly spread each slice with pesto; layer half of the slices with tomato and mozzarella. Cover sandwiches with the remaining bread slices.\n4 slices whole grain bread\n¼ cup sun-dried tomato pesto",
+      "Once the skillet is hot, add butter and swirl to coat the bottom. Place sandwiches in the skillet and cook until the bottoms are golden brown, 2-4 minutes.",
+      "Remove the sandwiches to a plate and add more butter to the skillet; return sandwiches to the skillet, browned-side up, and cook until golden brown on the other side and the cheese is melted, 2-4 minutes more. Once done, transfer to a cutting board and slice in half.",
+      "Divide sandwiches and veggies between plates; serve with ranch for dipping. Enjoy!"
+    ]
+  },
+  {
+    "recipeId": "40",
+    "userId": 1,
+    "recipeName": "Fettuccine Alfredo with Asparagus",
+    "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/224/presentation_efff3669-42b3-4af3-bae9-75eeb7e1b8d8.jpg",
+    "ingredients": [
+      {
+        "name": "asparagus",
+        "quantity": "1 small bunch"
+      },
+      {
+        "name": "chicken or vegetable broth",
+        "quantity": "4 fl oz"
+      },
+      {
+        "name": "fettuccine pasta",
+        "quantity": "6 oz"
+      },
+      {
+        "name": "garlic",
+        "quantity": "2 cloves"
+      },
+      {
+        "name": "Parmesan cheese",
+        "quantity": "1 oz"
+      },
+      {
+        "name": "whole milk",
+        "quantity": "4 fl oz"
+      },
+      {
+        "name": "all-purpose flour",
+        "quantity": "1 ½ tbsp"
+      },
+      {
+        "name": "black pepper",
+        "quantity": "⅛ tsp"
+      },
+      {
+        "name": "butter, unsalted",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "salt",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "instructions": [
+      "Fill a medium saucepan halfway with water, cover, and bring to a boil. Uncover, add salt and pasta, and stir for a few seconds. Cook until desired firmness, 9-10 minutes.\nabout 7 cups water\n1 tbsp salt\n6 oz (1 quarter coin = 2 oz) fettuccine pasta",
+      "Wash asparagus and snap off woody ends. Cut diagonally into 2 inch pieces. Add to pasta during the last 2-3 minutes of cooking time.\n1 small bunch asparagus",
+      "Heat a sauté pan over medium heat.",
+      "Peel and mince garlic.\n2 cloves garlic",
+      "Add butter to pan and swirl to coat. Add garlic and cook until fragrant, 15-30 seconds.",
+      "Sprinkle flour into pan and whisk until combined with the butter.\n1 ½ tbsp all-purpose flour",
+      "Add broth and whisk until smooth. Then add milk and stir until sauce is thickened, 4-5 minutes.\n4 fl oz (½ cup) chicken or vegetable broth\n4 fl oz (½ cup) whole milk",
+      "Finely grate ¼ cup of Parmesan.\n1 oz Parmesan cheese",
+      "Add Parmesan, salt, and pepper to sauce. Stir until smooth, then reduce heat to low until pasta is ready.\n¼ tsp salt\n⅛ tsp black pepper",
+      "Drain pasta and asparagus in a colander, reserving about ½ cup of the pasta water.",
+      "Add pasta, asparagus, and ½ of the reserved pasta water to sauce. Toss to combine. Add more pasta water to thin out the sauce if desired.",
+      "Place on a plate, garnish with freshly ground pepper, and enjoy!"
+    ]
+  },
+  {
+    "recipeId": "41",
+    "userId": 1,
+    "recipeName": "Mozzarella, Tomato & Basil Omelet",
+    "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/1016/presentation_bc72505c-d025-4745-9afc-f8ccf4214a0b.jpeg",
+    "ingredients": [
+      {
+        "name": "eggs",
+        "quantity": "6"
+      },
+      {
+        "name": "fresh basil",
+        "quantity": "½ small pkg"
+      },
+      {
+        "name": "mozzarella cheese",
+        "quantity": "¼ (8 oz) block"
+      },
+      {
+        "name": "tomatoes",
+        "quantity": "2"
+      },
+      {
+        "name": "black pepper",
+        "quantity": "1 pinch"
+      },
+      {
+        "name": "butter, unsalted",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "salt",
+        "quantity": "1 tsp"
+      }
+    ],
+    "instructions": [
+      "Wash and thinly slice the tomatoes. Set half aside for garnish.\n2 tomatoes",
+      "Wash and pick basil leaves off the stems, roll up crosswise, and thinly slice into ribbons.\n½ small pkg fresh basil",
+      "Coarsely grate cheese.\n¼ (8 oz) block mozzarella cheese",
+      "Preheat a nonstick skillet over medium heat.",
+      "In a medium bowl, whisk together eggs, salt, and pepper.\n6 eggs\n¼ tsp salt\n1 pinch black pepper",
+      "Once the skillet is hot, add butter and swirl to coat the bottom.\n1 tbsp butter, unsalted",
+      "Add eggs to the skillet and swirl to cover the bottom. As eggs begin to set, use a spatula to pull the cooked edges towards the center of the pan. Then tilt the pan, allowing the uncooked egg to move to the edges. Cook until just set, pressing the eggs into a smooth layer on the bottom of the skillet.",
+      "Sprinkle the cheese over one side of the omelet; layer reserved tomato slices and the basil on top. Fold the omelet in half and cook until cheese is melted, about 1 minute.",
+      "To serve, cut omelets in half and divide between plates; enjoy with remaining tomato slices on the side!"
+    ]
+  },
+  {
+    "recipeId": "42",
+    "userId": 1,
+    "recipeName": "Scrambled Eggs with Mushrooms & Fried Tomatoes",
+    "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/1039/presentation_b2891e82-583a-4714-a126-a485a2958b75.jpeg",
+    "ingredients": [
+      {
+        "name": "cremini mushrooms",
+        "quantity": "½ lb"
+      },
+      {
+        "name": "eggs",
+        "quantity": "5"
+      },
+      {
+        "name": "garlic",
+        "quantity": "1 clove"
+      },
+      {
+        "name": "tomatoes",
+        "quantity": "2"
+      },
+      {
+        "name": "black pepper",
+        "quantity": "1 pinch"
+      },
+      {
+        "name": "extra virgin olive oil",
+        "quantity": "4 tsp"
+      },
+      {
+        "name": "salt, thyme",
+        "quantity": "1 tsp"
+      }
+    ],
+    "instructions": [
+      "Wash and dry the fresh produce.\n½ lb cremini mushrooms\n2 tomatoes",
+      "Slice mushrooms. Cut tomatoes in half.",
+      "Preheat a nonstick skillet over medium-high heat.",
+      "Peel and mince garlic.\n1 clove garlic",
+      "Once the skillet is hot, add oil and swirl to coat the bottom.\n2 tsp extra virgin olive oil",
+      "Add mushrooms, garlic, and thyme to the skillet. Cook, stirring occasionally, until mushrooms are tender, 3-4 minutes.",
+      "Meanwhile, crack eggs into a medium bowl and season with salt and pepper; whisk to combine.",
+      "Push mushrooms to the edge of the skillet and add tomatoes, cut-side down. Cook, undisturbed, until tomatoes are browned, about 3 minutes. Transfer mushrooms and tomatoes to a plate and cover with aluminum foil."
+    ]
+  },
+  {
+    "recipeId": "43",
+    "userId": 1,
+    "recipeName": "Avocado White Bean Toast with Cheddar",
+    "imageUrl": "https://cdn-uploads.mealime.com/cdn-cgi/image/width=3840/uploads/recipe/thumbnail/868/presentation_645e945d-e4f7-422d-8ea5-6c3d9c6c0e72.jpeg",
+    "ingredients": [
+      {
+        "name": "avocado",
+        "quantity": "1"
+      },
+      {
+        "name": "cannellini (white kidney) beans",
+        "quantity": "½ (15 oz) can"
+      },
+      {
+        "name": "cheddar cheese",
+        "quantity": "⅛ (8 oz) block"
+      },
+      {
+        "name": "garlic",
+        "quantity": "1 clove"
+      },
+      {
+        "name": "lemon",
+        "quantity": "½"
+      },
+      {
+        "name": "tomato",
+        "quantity": "1"
+      },
+      {
+        "name": "whole grain bread",
+        "quantity": "2 slices"
+      },
+      {
+        "name": "black pepper",
+        "quantity": "⅛ tsp"
+      },
+      {
+        "name": "salt, thyme",
+        "quantity": "¼ tsp"
+      }
+    ],
+    "instructions": [
+      "Drain and rinse beans in a colander; set aside to drain further.\n½ (15 oz) can cannellini (white kidney) beans",
+      "Wash and dry the fresh produce.\n1 avocado\n½ lemon\n1 tomato",
+      "Halve and pit the avocado. Cut into chunks while still in the skin, then scoop out into a medium bowl.",
+      "Juice lemon into the bowl with the avocado.",
+      "Peel and mince garlic; add to the same bowl.",
+      "Add beans and spices to the bowl with the avocado; mash until well combined but still slightly chunky.",
+      "Medium dice tomato.",
+      "Slice cheese.",
+      "Toast bread if desired.",
+      "To serve, divide toast between plates, top with cheese, avocado-bean mix, and tomatoes. Enjoy!"
     ]
   }
 ]

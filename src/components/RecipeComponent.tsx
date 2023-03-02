@@ -15,7 +15,6 @@ const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
 
     const [openModal, setOpenModal] = React.useState(false);
 
-     console.log(recipe)
     const handleOpenModal = () => {
         setOpenModal(true);
     }
@@ -32,7 +31,7 @@ const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
-                    <div style={{marginTop: 30}}>
+                    <div style={{marginTop: 30, marginLeft: 30}}>
                         <img style={{width: 350, height: 350}}
                              src={recipe.imageUrl ? recipe.imageUrl : 'https://via.placeholder.com/350x350?text=Yammy!'}/>
                     </div>
