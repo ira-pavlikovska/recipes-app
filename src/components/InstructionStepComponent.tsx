@@ -13,7 +13,7 @@ const InstructionStepComponent = ({step, handleDeleteInstructionStep}: Props) =>
     return (
         <Grid style={{flex: 12, paddingLeft: 120}} container spacing={2}>
             <Grid item xs={10}>
-                <div>{step}</div>
+                <div data-testid={'instruction-step'}>{step}</div>
             </Grid>
             <Grid item xs={2}>
                 <div><Button

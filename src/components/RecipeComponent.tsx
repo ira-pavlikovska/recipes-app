@@ -38,7 +38,7 @@ const RecipeComponent = ({recipe, handleDeleteRecipe}: Props) => {
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <div style={{marginTop: 30, color: '#1976d2', fontSize: 20}}>
-                        <div>{recipe.recipeName}</div>
+                        <div data-testid={'recipe-name'}>{recipe.recipeName}</div>
                         {handleDeleteRecipe && (
                             <Button
                                 variant="outlined"

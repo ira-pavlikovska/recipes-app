@@ -73,22 +73,24 @@ function RecipesPage() {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <StyledHeader><Header keyword={keyword} setKeyword={setKeyword}/></StyledHeader>
+                    <StyledHeader data-testid={'header-element'}><Header keyword={keyword} setKeyword={setKeyword}/></StyledHeader>
                 </Grid>
                 <Grid item xs={12}>
                     <StyledPaper elevation={3} style={{height: !haveRecipes ? 300 : ''}}>
                         <Grid item xs={12}>
                             <StyledContainer>
-                                <MyRecipes>My Recipes</MyRecipes>
+                                <MyRecipes data-testid={'title-element'}>My Recipes</MyRecipes>
                                 <ViewLabel>View</ViewLabel>
                                 <GalleryIcon
                                     onClick={() => setGalleryMode(true)}
                                 />
                                 <ListIcon
+                                    data-testid={'list-mode-icon'}
                                     onClick={() => setGalleryMode(false)}
                                 />
                                 <StyledButton
                                     variant="outlined"
+                                    data-testid={'add-recipe-button'}
                                     onClick={handleAddRecipe}
                                 >
                                     Add new Recipe

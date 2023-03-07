@@ -131,8 +131,9 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                     <List sx={styleDivider}>
                         <Grid item xs={12}>
                             <ListItem>
-                                <Typography>Recipe name</Typography>
+                                <Typography data-testid={'modal-label-element'}>Recipe name</Typography>
                                 <TextField
+                                    data-testid={'input[name=recipeName]'}
                                     placeholder="add recipe name here"
                                     style={{width: 300, marginLeft: 16}}
                                     minRows={1}
@@ -148,6 +149,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                             <ListItem>
                                 <Typography>Ingredients</Typography>
                                 <TextField
+                                    data-testid={'input[name=name]'}
                                     variant="outlined"
                                     placeholder="name"
                                     style={{marginLeft: 30}}
@@ -155,6 +157,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                                     onChange={(e) => setIngredientName(e.target.value)}
                                 />
                                 <TextField
+                                    data-testid={'input[name=quantity]'}
                                     variant="outlined"
                                     placeholder="quantity"
                                     value={ingredientQuantity}
@@ -162,6 +165,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                                     onChange={(e) => setIngredientQuantity(e.target.value)}
                                 />
                                 <Button
+                                    data-testid={'add-ingredients-button'}
                                     variant="outlined"
                                     style={{marginLeft: 90}}
                                     onClick={() => handleAddNewIngredient(ingredientName, ingredientQuantity)}
@@ -169,11 +173,16 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
 
                             </ListItem>
                             <ListItem>
-                                <div style={{justifyContent: 'center', width: '100%', height: 200, overflow: 'scroll'}}>
+                                <div
+                                    style={{justifyContent: 'center', width: '100%', height: 200, overflow: 'scroll'}}
+
+                                >
                                     {
                                         haveIngredients && (
                                             ingredientObjArr.map((ingredient: Ingredient) => (
-                                                <div style={{display: "flex", flexDirection: "column"}}>
+                                                <div
+                                                      style={{display: "flex", flexDirection: "column"}}
+                                                >
                                                     <IngredientComponent ingredient={ingredient}
                                                                          handleDeleteIngredient={handleDeleteIngredient}/>
                                                 </div>
@@ -189,6 +198,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                             <ListItem>
                                 <Typography>Instructions</Typography>
                                 <TextField
+                                    data-testid={'input[name=step]'}
                                     variant="outlined"
                                     fullWidth
                                     placeholder="step"
@@ -197,6 +207,7 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                                     onChange={(e) => setInstructionStep(e.target.value)}
                                 />
                                 <Button
+                                    data-testid={'add-instruction-button'}
                                     variant="outlined"
                                     style={{marginLeft: 30}}
                                     onClick={() => handleAddNewInstruction(instructionStep)}
@@ -227,7 +238,9 @@ export default function AddRecipeModal({handleCloseModal, open, recipe}: Props) 
                                         variant="contained"
                                         onClick={handleCloseModal}
                                     >Cancel</Button>
-                                    <Button onClick={onSave} variant="contained">{recipe? 'Edit' : 'Add'}</Button>
+                                    <Button
+                                        data-testid={'add-edit-button'}
+                                        onClick={onSave} variant="contained">{recipe? 'Edit' : 'Add'}</Button>
                                 </Stack>
                             </ListItem>
                         </Grid>

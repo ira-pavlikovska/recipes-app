@@ -108,7 +108,7 @@ function LoginPage() {
                             </InputWrapper>
                             <InputWrapper>
                                 {error && (
-                                    <div> {error}</div>
+                                    <div data-testid={'error-message'}> {error}</div>
                                 )}
                             </InputWrapper>
                         </StyledPaper>
