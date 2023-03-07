@@ -83,6 +83,7 @@ function LoginPage() {
                                     label="Username"
                                     value={username}
                                     onChange={usernameHandler}
+                                    data-testid={'username-input'}
                                 />
                             </InputWrapperUsername>
                             <InputWrapper>
@@ -92,6 +93,7 @@ function LoginPage() {
                                     label="Password"
                                     value={password}
                                     onChange={passwordHandler}
+                                    data-testid={'password-input'}
                                 />
                             </InputWrapper>
                             <InputWrapper>
@@ -99,6 +101,7 @@ function LoginPage() {
                                     tabIndex={3}
                                     variant="outlined"
                                     onClick={signInHandler}
+                                    data-testid={'login-button'}
                                 >
                                     Sign in
                                 </Button>
