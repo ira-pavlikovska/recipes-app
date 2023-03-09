@@ -73,7 +73,8 @@ function RecipesPage() {
         <Box sx={{flexGrow: 1}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <StyledHeader data-testid={'header-element'}><Header keyword={keyword} setKeyword={setKeyword}/></StyledHeader>
+                    <StyledHeader data-testid={'header-element'}><Header keyword={keyword}
+                                                                         setKeyword={setKeyword}/></StyledHeader>
                 </Grid>
                 <Grid item xs={12}>
                     <StyledPaper elevation={3} style={{height: !haveRecipes ? 300 : ''}}>
@@ -106,13 +107,18 @@ function RecipesPage() {
                                     ) :
                                     (
                                         recipes.map((recipe: RecipeType) => (
-                                            <div>
-                                                <RecipeComponent recipe={recipe}
-                                                                 handleDeleteRecipe={handleDeleteRecipe}/>
-                                            </div>
+                                            <ul
+                                                data-testid={'list-recipes'}
+                                                style={{listStyleType: 'none'}}
+                                            >
+                                                <li data-testid={'list-recipe'}><RecipeComponent
+                                                    recipe={recipe}
+                                                    handleDeleteRecipe={handleDeleteRecipe}/>
+                                                </li>
+                                            </ul>
                                         ))
-
                                     )
+
                             }
                             {
                                 !haveRecipes ? `0 results for ${keyword}` : ''

@@ -45,7 +45,7 @@ const Header = ({keyword, setKeyword}: Props) => {
                         's'} Recipes book
                     </h2>
                 </StyledTitle>
-                <SearchInputWrapper>
+                <SearchInputWrapper data-testid={'search-input'}>
                     <SearchInput
                         placeholder="Search meals"
                         variant="outlined"
