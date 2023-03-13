@@ -3,10 +3,17 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import InputLabel from '@mui/material/InputLabel';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {useNavigate} from 'react-router-dom';
 import {useAppDispatch} from '../hooks/useAppDispatch'
-import { setUser } from "../reducer/userReducer";
+import {setUser} from "../reducer/userReducer";
 import {ChangeEvent, useState} from "react";
 import {login} from "../api"
 import {InputWrapper, InputWrapperUsername, PaperWrapper} from "./LoginPage.styles";
@@ -32,19 +39,24 @@ function LoginPage() {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string>('');
+    const [showPassword, setShowPassword] = useState<boolean>(false);
     let navigate = useNavigate();
 
     const usernameHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setUsername(event.target.value)
     }
 
-    const passwordHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const passwordHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value)
     }
 
-    const handleErrors = (data:any) => {
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
+
+    const handleErrors = (data: any) => {
         console.log(data)
-        if(data.data.error === true){
+        if (data.data.error === true) {
             setError(data.data.errorText)
             return true
         }
@@ -54,15 +66,15 @@ function LoginPage() {
     const signInHandler = () => {
 
         login(username, password)
-            .then((response: any)=> {
-            console.log(JSON.stringify(response))
-                if(handleErrors(response)) return
+            .then((response: any) => {
+                console.log(JSON.stringify(response))
+                if (handleErrors(response)) return
 
                 localStorage.setItem('token', response.data.token)
                 dispatch(setUser(response.data))
                 navigate('/recipes')
             })
-            .catch((error: any)=> {
+            .catch((error: any) => {
                 console.log("error")
             })
     }
@@ -78,6 +90,7 @@ function LoginPage() {
                             </InputWrapper>
                             <InputWrapperUsername>
                                 <TextField
+                                    sx={{width: 227}}
                                     required
                                     tabIndex={1}
                                     label="Username"
@@ -87,14 +100,31 @@ function LoginPage() {
                                 />
                             </InputWrapperUsername>
                             <InputWrapper>
-                                <TextField
-                                    required
-                                    tabIndex={2}
-                                    label="Password"
-                                    value={password}
-                                    onChange={passwordHandler}
-                                    data-testid={'password-input'}
-                                />
+                                <FormControl variant="outlined">
+                                    <InputLabel htmlFor="outlined-adornment-password" required>Password</InputLabel>
+                                    <OutlinedInput
+                                        id="outlined-adornment-password"
+                                        required
+                                        tabIndex={2}
+                                        value={password}
+                                        type={showPassword ? 'text' : 'password'}
+                                        onChange={passwordHandler}
+                                        data-testid={'password-input'}
+                                        label="Password"
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label="toggle password visibility"
+                                                    onClick={handleClickShowPassword}
+                                                    edge="end"
+                                                >
+                                                    {showPassword ? <VisibilityIcon/> : <VisibilityOffIcon/>}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+
+                                    />
+                                </FormControl>
                             </InputWrapper>
                             <InputWrapper>
                                 <Button
@@ -116,7 +146,8 @@ function LoginPage() {
                 </Grid>
             </Grid>
         </Box>
-    );
+    )
+        ;
 }
 
 export default LoginPage;
