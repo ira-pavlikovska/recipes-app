@@ -16,7 +16,7 @@ import {useAppDispatch} from '../hooks/useAppDispatch'
 import {setUser} from "../reducer/userReducer";
 import {ChangeEvent, useState} from "react";
 import {login} from "../api"
-import {InputWrapper, InputWrapperUsername, PaperWrapper} from "./LoginPage.styles";
+import {InputWrapper, InputWrapperUsername, PaperWrapper, ErrorMessage} from "./LoginPage.styles";
 
 
 const StyledPaper = styled(Paper)(({theme}) => ({
@@ -141,7 +141,9 @@ function LoginPage() {
                             </InputWrapper>
                             <InputWrapper>
                                 {error && (
-                                    <div data-testid={'error-message'}> {error}</div>
+                                    <ErrorMessage
+                                        data-testid={'error-message'}
+                                    > {error}</ErrorMessage>
                                 )}
                             </InputWrapper>
                         </StyledPaper>

@@ -15,3 +15,6 @@ export const InputWrapperUsername = styled.div`
   padding-top: 40px;
   background-color: white;
 `
+export const ErrorMessage = styled.div`
+  color: red ;
+`
