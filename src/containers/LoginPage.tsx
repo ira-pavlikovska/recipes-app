@@ -53,6 +53,9 @@ function LoginPage() {
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword)
     }
+     const createAccount = () => {
+         navigate('/createAccount')
+     }
 
     const handleErrors = (data: any) => {
         console.log(data)
@@ -139,6 +142,16 @@ function LoginPage() {
                                     Sign in
                                 </Button>
                             </InputWrapper>
+                            <InputWrapper>
+                                <Button
+                                    tabIndex={3}
+                                    variant="outlined"
+                                    onClick={createAccount}
+                                >
+                                    Create account
+                                </Button>
+                            </InputWrapper>
+
                             <InputWrapper>
                                 {error && (
                                     <ErrorMessage

@@ -8,6 +8,7 @@ import LoginPage from "./containers/LoginPage";
 import RecipesPage from "./containers/RecipesPage";
 import PersonalAccountPage from "./containers/PersonalAccountPage";
 import RecipePage from "./containers/RecipePage";
+import CreateAccountPage from "./containers/CreateAccountPage";
 import {RecipeType} from "./models";
 
 // type Props = {
@@ -24,6 +25,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<LoginPage/>}/>
+                    <Route path='/createAccount' element={<CreateAccountPage/>}/>
                     <Route path='/recipes' element={<RecipesPage/>}/>
                     <Route path='/personalAccount' element={<PersonalAccountPage/>}/>
                     <Route path='/recipe/:id' element={<RecipePage/>}/>
