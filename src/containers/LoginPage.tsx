@@ -91,6 +91,7 @@ function LoginPage() {
                             <InputWrapperUsername>
                                 <TextField
                                     sx={{width: 227}}
+                                    variant="outlined"
                                     required
                                     tabIndex={1}
                                     label="Username"
@@ -105,7 +106,9 @@ function LoginPage() {
                                     <OutlinedInput
                                         id="outlined-adornment-password"
                                         required
+                                        autoComplete="new-password"
                                         tabIndex={2}
+                                        style={{backgroundColor: 'white'}}
                                         value={password}
                                         type={showPassword ? 'text' : 'password'}
                                         onChange={passwordHandler}
